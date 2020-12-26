@@ -472,14 +472,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-12-11
+                    2020-12-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    933
+                    990
                 </div>
                 
 
@@ -502,19 +502,20 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>anki是一款小众而美丽的应用，无奈同步服务太过揪心。安装这款软件后，从此：“两岸猿声啼不住，轻舟已过万重山。”</p>
-<p>这个教程是介绍搭建anki服务器的<strong>Windows免安装</strong>软件，文章末尾标准版<strong>百度云盘链接自取</strong>哟；其优点是简单易用，点击击软件即可开启服务器，并且第一次配置也是非常easy！如果需要远程安装，需要收取<strong>￥3</strong>至<strong>5</strong>元的服务费哟（可以在咸鱼上更快联系到我哟）。</p>
+<p>这个教程是介绍搭建anki服务器的<strong>Windows免安装</strong>软件（64位哦），文章末尾标准版<strong>百度云盘链接自取</strong>哟；其优点是简单易用，点击击软件即可开启服务器，并且第一次配置也是非常easy！如果需要远程安装，需要收取<strong>￥3</strong>至<strong>5</strong>元的服务费哟（可以在咸鱼上更快联系到我哟）。</p>
 <hr>
 <p><strong>配置满足的条件</strong>有（Anki各版本软件可在文末下载）：</p>
 <ul>
-<li>Windows Anki版本2.1<strong>（</strong>已支持<strong>2.1.26</strong>及<strong>以前</strong>版本：帮助–&gt;关于<strong>）</strong></li>
-<li>python3.8（不用自己下载安装）</li>
+<li>Windows Anki版本2.1<strong>（</strong>已支持<strong>2.1.36</strong>、<strong>2.1.26</strong>及<strong>以前</strong>版本：帮助–&gt;关于<strong>）</strong></li>
+<li>python3.8（不用自己下载安装，<strong>2.1.36</strong>不需要安装python和依赖）</li>
 <li>安卓平台 Ankidroid 版本 <strong>2.13</strong>及<strong>以前</strong>版本（注：2.10及以后版本请阅读这个教程<a href="https://sampuly.gitee.io/Windows%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8Ehttps%E5%8D%8F%E8%AE%AE%E7%9A%84Anki%E5%B1%80%E5%9F%9F%E7%BD%91%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.html">Ankidoid 2.10搭建局域网服务器</a></li>
 <li>同步时局域网（手机热点，WIFI）内和在电脑旁</li>
 <li>IOS anki （ipad，iphone等）不能同步。</li>
 </ul>
 <p><strong>首先运行</strong>第一次引导配置程序，双击<strong>auto_install.exe</strong>开始引导配置，在<strong>Win7</strong>系统上发现不能打印颜色，请双击<strong>auto_install_for_Win7.exe</strong> 。</p>
 <p><strong>Attention:请先打开手机Anki查看版本（设置–&gt;高级设置–&gt;关于），如果&lt;2.10,阅读本教程;如果&gt;=2.10,请移步至<a href="https://sampuly.gitee.io/Windows%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8Ehttps%E5%8D%8F%E8%AE%AE%E7%9A%84Anki%E5%B1%80%E5%9F%9F%E7%BD%91%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.html">Ankidoid 2.10搭建局域网服务器</a> (如网页打不开，请看文件夹内的离线教程)</strong></p>
-<h2 id="一、python及其依赖的安装"><a href="#一、python及其依赖的安装" class="headerlink" title="一、python及其依赖的安装"></a>一、python及其依赖的安装</h2><h2 id="1-python安装（要求版本-3-8）"><a href="#1-python安装（要求版本-3-8）" class="headerlink" title="1.python安装（要求版本 3.8）"></a>1.python安装（要求版本 3.8）</h2><p>不用自己下载，文件夹提供有安装包，安装时记得勾选添加python路径到环境变量，如下图。<br><img src="https://s1.ax1x.com/2020/06/15/NpzuJf.jpg" alt="Add Python To PATH"></p>
+<h2 id="一、python及其依赖的安装"><a href="#一、python及其依赖的安装" class="headerlink" title="一、python及其依赖的安装"></a>一、python及其依赖的安装</h2><h2 id="1-python安装（要求版本-3-8）"><a href="#1-python安装（要求版本-3-8）" class="headerlink" title="1.python安装（要求版本 3.8）"></a>1.python安装（要求版本 3.8）</h2><p>PC Anki 版本<strong>2.1.36</strong> 不需要安装python。</p>
+<p>不用自己下载，文件夹提供有安装包，安装时记得勾选添加python路径到环境变量，如下图。<br><img src="https://s1.ax1x.com/2020/06/15/NpzuJf.jpg" alt="Add Python To PATH"></p>
 <h2 id="2-python依赖的安装"><a href="#2-python依赖的安装" class="headerlink" title="2.python依赖的安装"></a>2.python依赖的安装</h2><p>按照引导程序，输入数字，进行下一步操作。</p>
 <h2 id="二、电脑版anki的和手机版anki-IP设置"><a href="#二、电脑版anki的和手机版anki-IP设置" class="headerlink" title="二、电脑版anki的和手机版anki IP设置"></a>二、电脑版anki的和手机版anki IP设置</h2><h2 id="1-电脑版anki-IP设置"><a href="#1-电脑版anki-IP设置" class="headerlink" title="1.电脑版anki IP设置"></a>1.电脑版anki IP设置</h2><p>根据对应的电脑Anki版本输入相应数字，自动复制插件和更新电脑 Anki IP，然后重启Anki。</p>
 <h2 id="2-安卓手机版anki-IP配置"><a href="#2-安卓手机版anki-IP配置" class="headerlink" title="2.安卓手机版anki IP配置"></a>2.安卓手机版anki IP配置</h2><p>配合引导程序和文件夹，进入目录–&gt;电脑端和手机端anki的配置 ,如有疑问，欢迎私聊。</p>
@@ -527,7 +528,8 @@
 <p><strong>百度网盘链接:</strong></p>
 <p><strong>Windows Anki ：</strong><a target="_blank" rel="noopener" href="http://www.ankichina.net/resource/winAnki">Anki中国下载地址</a>，<a target="_blank" rel="noopener" href="https://apps.ankiweb.net/">Anki官网下载</a>，<a target="_blank" rel="noopener" href="https://github.com/ankitects/anki/releases">PC 历史版本</a></p>
 <p><strong>Ankidroid</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1_sEx8PXrraQuXlsfx_Y3EA">百度网盘链接（提取码：2020）</a>，<a target="_blank" rel="noopener" href="https://f-droid.org/packages/com.ichi2.anki/">F-droid市场下载</a>，<a target="_blank" rel="noopener" href="https://github.com/ankidroid/Anki-Android/releases">gtihub下载</a></p>
-<p><strong>服务器端软件</strong>压缩包（提取码：2020）： <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1n7Ji3MmaiEGcPRulUMYKUQ">点这里</a></p>
+<p><strong>服务器端软件（2.1.26及以前版本）</strong>压缩包（提取码：2020）： <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1d65uGWUPNpb1yh-EKpkiEg">点这里</a></p>
+<p><strong>服务器端软件（2.1.36）</strong>压缩包（提取码：2020）：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1b0Wp7Co4vJWUblq0cJ6RZg">点这里</a></p>
 <p>链接不可用欢迎留言反馈哟！</p>
 <p><strong>无法正常配置和使用问题自检：</strong></p>
 <p><strong>Q1：点击打开服务器，命令行窗口闪退？</strong></p>
@@ -1223,7 +1225,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.3k</span>&nbsp;字
+                class="white-color">3.5k</span>&nbsp;字
             
             
             
