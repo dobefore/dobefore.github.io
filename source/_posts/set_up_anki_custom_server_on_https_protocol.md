@@ -1,6 +1,7 @@
 ---
 title: Windows搭建基于https协议的Anki局域网同步服务器
 date: 2020-06-10 11:53:41
+readmore: true
 categories: tools
 tags:
 - Anki
