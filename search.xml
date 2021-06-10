@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>rust中的文本断行（newline）</title>
+      <link href="/newline-differ-in-Windows-and-Linux/"/>
+      <url>/newline-differ-in-Windows-and-Linux/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>在Windows平台用Rust编程，有时候需要写入batch（.bat）文件，但是却不能正确地执行。</p><p>下面是一个发送应用的快捷方式到桌面的batch。</p><pre class="language-basic" data-language="basic"><code class="language-basic">@echo <span class="token keyword">off</span><span class="token punctuation">:</span><span class="token punctuation">:</span>设置程序或文件的完整路径（必选）<span class="token function">set</span> <span class="token function">Program</span><span class="token operator">=</span>C<span class="token punctuation">:</span>\Users\Admin\Desktop\anki_server.exe<span class="token punctuation">:</span><span class="token punctuation">:</span>设置快捷方式名称（必选）<span class="token function">set</span> LnkName<span class="token operator">=</span>anki_server<span class="token punctuation">:</span><span class="token punctuation">:</span>设置程序的工作路径，一般为程序主目录，此项若留空，脚本将自行分析路径<span class="token function">set</span> WorkDir<span class="token operator">=</span><span class="token punctuation">:</span><span class="token punctuation">:</span>设置快捷方式显示的说明（可选）<span class="token function">set</span> Desc<span class="token operator">=</span>测试<span class="token keyword">if</span> <span class="token operator">not</span> defined WorkDir <span class="token keyword">call</span><span class="token punctuation">:</span>GetWorkDir <span class="token string">"%Program%"</span><span class="token punctuation">(</span>echo <span class="token function">Set</span> WshShell<span class="token operator">=</span>CreateObject<span class="token punctuation">(</span><span class="token string">"WScript.Shell"</span><span class="token operator">^</span><span class="token punctuation">)</span>echo strDesKtop<span class="token operator">=</span>WshShell.SpecialFolders<span class="token punctuation">(</span><span class="token string">"DesKtop"</span><span class="token operator">^</span><span class="token punctuation">)</span>echo <span class="token function">Set</span> oShellLink<span class="token operator">=</span>WshShell.CreateShortcut<span class="token punctuation">(</span>strDesKtop<span class="token operator">^</span><span class="token operator">&amp;</span>"\%LnkName%.lnk"<span class="token operator">^</span><span class="token punctuation">)</span>echo oShellLink.TargetPath<span class="token operator">=</span><span class="token string">"%Program%"</span>echo oShellLink.WorkingDirectory<span class="token operator">=</span><span class="token string">"%WorkDir%"</span>echo oShellLink.WindowStyle<span class="token operator">=</span><span class="token number">1</span>echo oShellLink.Description<span class="token operator">=</span><span class="token string">"%Desc%"</span>echo oShellLink.Save<span class="token punctuation">)</span><span class="token operator">></span>makelnk.vbsecho created shelllnk OKmakelnk.vbsdel <span class="token operator">/</span>f <span class="token operator">/</span>q makelnk.vbs<span class="token keyword">exit</span><span class="token keyword">goto</span> <span class="token punctuation">:</span>eof<span class="token punctuation">:</span>GetWorkDir<span class="token function">set</span> WorkDir<span class="token operator">=</span>%~dp1<span class="token function">set</span> WorkDir<span class="token operator">=</span>%WorkDir<span class="token punctuation">:</span>~<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span>%<span class="token keyword">goto</span> <span class="token punctuation">:</span>eof</code></pre><p>执行后得到，’柟寮忓悕绉帮紙蹇呴€夛級’ 不是内部或外部命令，也不是可运行的程序或批处理文件。</p><h2 id="Rust写文件默认的newline"><a href="#Rust写文件默认的newline" class="headerlink" title="Rust写文件默认的newline"></a>Rust写文件默认的newline</h2><h3 id="Windows中的体现"><a href="#Windows中的体现" class="headerlink" title="Windows中的体现"></a>Windows中的体现</h3><pre class="language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">let</span> p <span class="token operator">=</span> <span class="token string">"f.txt"</span><span class="token punctuation">;</span><span class="token comment">// </span>    <span class="token keyword">let</span> <span class="token keyword">mut</span> file <span class="token operator">=</span> <span class="token class-name">OpenOptions</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>        <span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>        <span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>        <span class="token punctuation">.</span><span class="token function">unwrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token macro property">writeln!</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">unwrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token macro property">writeln!</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">unwrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>运行后，用记事本<code>f.txt</code>打开，显示如下：</p><p><img src="https://z3.ax1x.com/2021/06/09/2cGvLD.png" alt="Linux_newline" loading="lazy">](<a href="https://imgtu.com/i/2cGvLD">https://imgtu.com/i/2cGvLD</a>)</p><p>结果看出是Unix风格的newline “”\n”，再看下Rust writeln!的文档说明：</p><blockquote><p>On all platforms, the newline is the LINE FEED character (<code>\n</code>/<code>U+000A</code>) alone (no additional CARRIAGE RETURN (<code>\r</code>/<code>U+000D</code>).</p></blockquote><h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><p>Rust中为我们提供了macro  write!()，并没有newline。我们自己提供newline风格CRLE（\r\n）。</p><pre class="language-none"><code class="language-none">write!(file, &quot;&#123;&#125;\r\n&quot;,&quot;c&quot;).unwrap();</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> program language </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> rust </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>无职转生～在异世界认真地活下去小说下载</title>
+      <link href="/wzzs/"/>
+      <url>/wzzs/</url>
+      
+        <content type="html"><![CDATA[<p>从qianbixiaoshuo上获取的<strong>无职转生～在异世界认真地活下去</strong>小说1-24卷提供百度网盘下载，txt和mobi(无目录) </p><p>网盘链接：<a href="https://pan.baidu.com/s/1fC61scDXaAXayJko60uj3Q">点此跳转网盘</a></p><p>提取码：2020</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> book </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> resource </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows搭建基于https协议的Anki局域网同步服务器</title>
+      <link href="/set_up_anki_custom_server_on_https_protocol/"/>
+      <url>/set_up_anki_custom_server_on_https_protocol/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>这篇是配合Ankidroid版本&gt;= <code> 2.10</code> 使用的，若不符合情况的请阅读教程<a href="https://sampuly.gitee.io/%E6%90%AD%E5%BB%BA-Anki%E5%B1%80%E5%9F%9F%E7%BD%91%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.html">Anki自建局域网同步服务器</a></p></blockquote><hr><p><strong>Tips</strong>：为什么总有小伙伴分不出大小，举两个例子：<code> 2.9.7</code> &lt;<code> 2.10</code>，<code> 2.11</code> &gt; <code>2.10</code>。</p><p><strong>配置满足的条件</strong>有（Anki各版本软件可在文末下载）：</p><ul><li>Windows Anki版本2.1（已支持<strong>2.1.36</strong>及以后、<strong>2.1.26及以前</strong>版本：帮助–&gt;关于）</li><li>python3.8（不用自己下载，<strong>2.1.36及以后</strong>不需要安装python和依赖）</li><li>安卓平台 Ankidroid  2.10及以后版本</li><li>同步时局域网（手机热点，WIFI）内和在电脑旁</li><li>IOS anki （ipad，iphone等）不能同步。</li></ul><p><strong>首先运行</strong>第一次引导配置程序，双击<strong>deploy_helper.exe</strong>开始引导配置，对于Win7以及打开auto_install闪退的用户，请双击<strong>deploy_helper.exe。</strong></p><h1 id="一、python及其依赖的安装"><a href="#一、python及其依赖的安装" class="headerlink" title="一、python及其依赖的安装"></a>一、python及其依赖的安装</h1><h2 id="1-python安装（要求版本-3-8）"><a href="#1-python安装（要求版本-3-8）" class="headerlink" title="1.python安装（要求版本 3.8）"></a>1.python安装（要求版本 3.8）</h2><p>PC Anki 版本<strong>2.1.36及以后</strong> 不需要安装python。</p><p>不用自己下载，文件夹提供有安装包，安装时记得勾选添加python路径到环境变量，如下图。<br><img src="https://s1.ax1x.com/2020/06/15/NpzuJf.jpg" alt="Add Python To PATH" loading="lazy"></p><h2 id="2-python依赖的安装"><a href="#2-python依赖的安装" class="headerlink" title="2.python依赖的安装"></a>2.python依赖的安装</h2><p>按照引导程序，输入数字，进行下一步操作。</p><h1 id="二、电脑版anki的和手机版anki-IP设置"><a href="#二、电脑版anki的和手机版anki-IP设置" class="headerlink" title="二、电脑版anki的和手机版anki IP设置"></a>二、电脑版anki的和手机版anki IP设置</h1><h2 id="1-电脑版anki-IP设置"><a href="#1-电脑版anki-IP设置" class="headerlink" title="1.电脑版anki IP设置"></a>1.电脑版anki IP设置</h2><p>根据对应的电脑Anki版本输入相应数字，自动复制插件和更新电脑 Anki IP，然后重启Anki。</p><h2 id="2-电脑安装证书、手机安装证书"><a href="#2-电脑安装证书、手机安装证书" class="headerlink" title="2.电脑安装证书、手机安装证书"></a>2.电脑安装证书、手机安装证书</h2><p>插件安装后，根据引导程序输入数字2进入添加Anki环境变量操作。</p><h3 id="1-添加Anki环境变量"><a href="#1-添加Anki环境变量" class="headerlink" title="(1)添加Anki环境变量"></a>(1)添加Anki环境变量</h3><p><strong>win10</strong> 亲测自动添加Anki环境变量，<strong>Win7</strong>如果发现不能成功，请按照下述步骤手动添加。</p><p><del>打开搜索框 ，输入框里输入<code>env</code> ,单击 <code>编辑账户的环境变量</code> ,单击用户变量下的 <code>新建</code>。</del></p><p><del>变量名输入：ANKI_NOVERIFYSSL</del></p><p><del>值：1</del></p><p><del>如下图</del></p><p><img src="https://s1.ax1x.com/2020/06/10/tocny9.jpg" alt="添加Anki环境变量" loading="lazy"></p><p>点击确认，再点击右下角的确认</p><h3 id="2-生成并安装电脑证书"><a href="#2-生成并安装电脑证书" class="headerlink" title="(2)生成并安装电脑证书"></a>(2)生成并安装电脑证书</h3><p>回到<strong>auto_install</strong> ,根据提示输入数字生成并安装<strong>Local CA</strong>。</p><p><strong>PC导入rootCA.crt证书</strong></p><p>在桌面找到<strong>rootCA.crt</strong>，双击启动导入程序，将证书导入<code>受信任的根证书颁发机构</code>。</p><p><img src="https://s1.ax1x.com/2020/06/10/tovFJS.jpg" alt="导入证书" loading="lazy"></p><p>再将<strong>rootCA.crt</strong>用QQ或USB复制到手机任意位置（确保到时候能找到）</p><h3 id="3-手机CA证书安装"><a href="#3-手机CA证书安装" class="headerlink" title="(3)手机CA证书安装"></a>(3)手机CA证书安装</h3><p>使用手机QQ/TIM或者文件浏览器找到文件<code>rootCA.crt</code>，触摸打开，如果提示以<code>证书安装程序</code>打开，请确认；证书名称随意填。</p><p>如果提示 <code>无法安装证书,因为无法读取证书文件</code>，<del>进入手机<code>设置--&gt;安全（安全和隐私,往下翻）--&gt;从SD卡安装（证书）--&gt;找到文件（rootCA.crt）并点击</code>,证书名称随意填.</del></p><h2 id="3-手机Anki-IP设置"><a href="#3-手机Anki-IP设置" class="headerlink" title="3.手机Anki IP设置"></a>3.手机Anki IP设置</h2><p>按照<strong>auto_install</strong>提示进行填写</p><h1 id="三、新建账号及打开同步服务"><a href="#三、新建账号及打开同步服务" class="headerlink" title="三、新建账号及打开同步服务"></a>三、新建账号及打开同步服务</h1><h2 id="1-将服务器软件发送到桌面快捷方式"><a href="#1-将服务器软件发送到桌面快捷方式" class="headerlink" title="1.将服务器软件发送到桌面快捷方式"></a>1.将服务器软件发送到桌面快捷方式</h2><p>按照引导程序来操作</p><h2 id="2-新建账号"><a href="#2-新建账号" class="headerlink" title="2.新建账号"></a>2.新建账号</h2><p>打开服务器软件，点击<strong>添加账号</strong></p><p><a href="https://imgchr.com/i/tpIvO1"><img src="https://s1.ax1x.com/2020/05/25/tpIvO1.jpg" alt="添加账号" loading="lazy"></a></p><h2 id="3-打开同步服务"><a href="#3-打开同步服务" class="headerlink" title="3.打开同步服务"></a>3.打开同步服务</h2><p>点击<strong>打开服务器</strong>，出现如下界面即表示正常，同步时请保持<strong>黑色窗口打开</strong>（可最小化）。打开电脑 Anki，建议 <strong>到文件–&gt;切换配置方案–&gt;添加</strong>新的配置方案并进入，点击同步，输入刚刚创建的账号密码。</p><p><a href="https://imgchr.com/i/tpIjyR"><img src="https://s1.ax1x.com/2020/05/25/tpIjyR.md.jpg" alt="打开服务器" loading="lazy"></a></p><p>接着就可以享受畅快的同步之旅啦。</p><p><strong>百度网盘链接</strong></p><p><strong>Windows Anki ：</strong><a href="http://www.ankichina.net/resource/winAnki">Anki中国下载地址</a>，<a href="https://apps.ankiweb.net/">Anki官网下载</a>，<a href="https://github.com/ankitects/anki/releases">PC 历史版本</a></p><p><strong>Ankidroid</strong>：<a href="https://pan.baidu.com/s/1_sEx8PXrraQuXlsfx_Y3EA">百度网盘链接（提取码：2020）</a>，<a href="https://f-droid.org/packages/com.ichi2.anki/">F-droid市场下载</a>，<a href="https://github.com/ankidroid/Anki-Android/releases">gtihub下载</a></p><p><strong>服务器端软件（2.1.26及以前版本）</strong>压缩包（提取码：2021）： <a href="https://pan.baidu.com/s/1Xrn-d2j0swujkcOCVh5dxg">点这里</a></p><p><strong>服务器端软件（2.1.36及以后）</strong>压缩包（提取码：2021）：<a href="https://pan.baidu.com/s/10V29Hk6XJNWsd-nPHxa7fA">点这里</a></p><p>链接不可用欢迎留言反馈哟</p><hr><p><strong>无法正常配置和使用问题自检：</strong></p><p><strong>Q1：点击打开服务器，命令行窗口闪退？</strong></p><p><strong>A：</strong>1.python依赖库是否安装到位 2.python是否能在CMD中启动 3.双击能否打开py文件（是否将python设置为默认打开方式）</p><p><strong>Q2：配置并打开服务器后，电脑端anki能够同步，手机端却不行？</strong></p><p><strong>A：</strong>1.手机端anki IP是否配置正确 2.手机和电脑是否在同一局域网下 3.电脑开启了防火墙，把防火墙关掉。</p><p><strong>Q3：对于2.1.36及以后版本服务器软件开启后，不能下载插件？</strong></p><p>A：1.关闭服务器软件黑色窗口 2.双击 **kill_****nginx.exe (**和auto_install 在一个 目录) 3.待插件下载后，再打开服务器软件</p><p><strong>参考文章：</strong></p><p><a href="https://www.xiebruce.top/881.html">CentOS7自建Anki同步服务器(python3)</a></p><p><a href="https://blog.dteam.top/posts/2019-04/%E6%9C%AC%E5%9C%B0https%E5%BF%AB%E9%80%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88mkcert.html">本地https快速解决方案——mkcert</a></p><p><a href="https://github.com/tsudoko/anki-sync-server.git">tsudoko/anki-sync-server</a></p><p><a href="https://github.com/ankicommunity/anki-sync-server">ankicommunity</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Anki </tag>
+            
+            <tag> 搭建Anki服务器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搭建Anki局域网同步服务器(Windows)</title>
+      <link href="/setup_anki_server_on_Windows/"/>
+      <url>/setup_anki_server_on_Windows/</url>
+      
+        <content type="html"><![CDATA[<p>这个教程是介绍搭建anki服务器的<strong>Windows免安装</strong>软件（64位哦），文章末尾标准版<strong>百度云盘链接自取</strong>哟；其优点是简单易用，点击击软件即可开启服务器，并且第一次配置也是非常easy！如果需要远程安装，需要收取<strong>￥3</strong>至<strong>5</strong>元的服务费哟（可以在咸鱼上更快联系到我哟）。</p><p><strong>配置满足的条件</strong>有（Anki各版本软件可在文末下载）：</p><ul><li>Windows Anki版本2.1<strong>（已支持</strong>2.1.36及以后<strong>、</strong>2.1.26及以前**版本：帮助–&gt;关于）</li><li>python3.8（不用自己下载安装，<strong>2.1.36及以后</strong>不需要安装python和依赖）</li><li>安卓平台 Ankidroid 版本 <strong>2.13</strong>及<strong>以前</strong>版本（注：2.10及以后版本请阅读这个教程<a href="https://sampuly.gitee.io/Windows%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8Ehttps%E5%8D%8F%E8%AE%AE%E7%9A%84Anki%E5%B1%80%E5%9F%9F%E7%BD%91%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.html">Ankidoid 2.10搭建局域网服务器</a></li><li>同步时局域网（手机热点，WIFI）内和在电脑旁</li><li>IOS anki （ipad，iphone等）不能同步。</li></ul><p><strong>首先运行</strong>第一次引导配置程序，双击<strong>deploy_helper.exe</strong>开始引导配置。</p><p><strong>Attention:请先打开手机Anki查看版本（设置–&gt;高级设置–&gt;关于），如果&lt;2.10,阅读本教程;如果&gt;=2.10,请移步至<a href="https://sampuly.gitee.io/Windows%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8Ehttps%E5%8D%8F%E8%AE%AE%E7%9A%84Anki%E5%B1%80%E5%9F%9F%E7%BD%91%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.html">Ankidoid 2.10搭建局域网服务器</a> (如网页打不开，请看文件夹内的离线教程)</strong></p><h2 id="一、python及其依赖的安装"><a href="#一、python及其依赖的安装" class="headerlink" title="一、python及其依赖的安装"></a>一、python及其依赖的安装</h2><h3 id="1-python安装（要求版本-3-8）"><a href="#1-python安装（要求版本-3-8）" class="headerlink" title="1.python安装（要求版本 3.8）"></a>1.python安装（要求版本 3.8）</h3><p>PC Anki 版本**2.1.36及以后 ** 不需要安装python。</p><p>不用自己下载，文件夹提供有安装包，安装时记得勾选添加python路径到环境变量，如下图。<br><img src="https://s1.ax1x.com/2020/06/15/NpzuJf.jpg" alt="Add Python To PATH" loading="lazy"></p><h3 id="2-python依赖的安装"><a href="#2-python依赖的安装" class="headerlink" title="2.python依赖的安装"></a>2.python依赖的安装</h3><p>按照引导程序，输入数字，进行下一步操作。</p><h2 id="二、电脑版anki的和手机版anki-IP设置"><a href="#二、电脑版anki的和手机版anki-IP设置" class="headerlink" title="二、电脑版anki的和手机版anki IP设置"></a>二、电脑版anki的和手机版anki IP设置</h2><h3 id="1-电脑版anki-IP设置"><a href="#1-电脑版anki-IP设置" class="headerlink" title="1.电脑版anki IP设置"></a>1.电脑版anki IP设置</h3><p>根据对应的电脑Anki版本输入相应数字，自动复制插件和更新电脑 Anki IP，然后重启Anki。</p><h3 id="2-安卓手机版anki-IP配置"><a href="#2-安卓手机版anki-IP配置" class="headerlink" title="2.安卓手机版anki IP配置"></a>2.安卓手机版anki IP配置</h3><p>配合引导程序和文件夹，进入目录–&gt;电脑端和手机端anki的配置 ,如有疑问，欢迎私聊。</p><h2 id="三、新建账号及打开同步服务"><a href="#三、新建账号及打开同步服务" class="headerlink" title="三、新建账号及打开同步服务"></a>三、新建账号及打开同步服务</h2><h3 id="1-将服务器软件发送到桌面快捷方式"><a href="#1-将服务器软件发送到桌面快捷方式" class="headerlink" title="1.将服务器软件发送到桌面快捷方式"></a>1.将服务器软件发送到桌面快捷方式</h3><p>按照引导程序来操作</p><h3 id="2-新建账号"><a href="#2-新建账号" class="headerlink" title="2.新建账号"></a>2.新建账号</h3><p>打开服务器软件，点击<strong>添加账号</strong></p><p><a href="https://imgchr.com/i/tpIvO1"><img src="https://s1.ax1x.com/2020/05/25/tpIvO1.md.jpg" alt="添加用户" loading="lazy"></a></p><h3 id="3-打开同步服务"><a href="#3-打开同步服务" class="headerlink" title="3.打开同步服务"></a>3.打开同步服务</h3><p>点击<strong>打开服务器</strong>，出现如下界面即表示正常,同步时请保持<strong>黑色窗口打开</strong>（可最小化）。打开电脑 Anki，建议 <strong>到文件–&gt;切换配置方案–&gt;添加</strong>新的配置方案并进入，点击同步，输入刚刚创建的账号密码。</p><p><a href="https://imgchr.com/i/tpIjyR"><img src="https://s1.ax1x.com/2020/05/25/tpIjyR.md.jpg" alt="打开服务器" loading="lazy"></a></p><p>接着就可以享受畅快的同步之旅啦。</p><p><strong>百度网盘链接:</strong></p><p><strong>Windows Anki ：</strong><a href="http://www.ankichina.net/resource/winAnki">Anki中国下载地址</a>，<a href="https://apps.ankiweb.net/">Anki官网下载</a>，<a href="https://github.com/ankitects/anki/releases">PC 历史版本</a></p><p><strong>Ankidroid</strong>：<a href="https://pan.baidu.com/s/1_sEx8PXrraQuXlsfx_Y3EA">百度网盘链接（提取码：2020）</a>，<a href="https://f-droid.org/packages/com.ichi2.anki/">F-droid市场下载</a>，<a href="https://github.com/ankidroid/Anki-Android/releases">gtihub下载</a></p><p><strong>服务器端软件（2.1.26及以前版本）</strong>压缩包（提取码：2021）： <a href="https://pan.baidu.com/s/1Xrn-d2j0swujkcOCVh5dxg">点这里</a></p><p><strong>服务器端软件（2.1.36及以后）</strong>压缩包（提取码：2021）：<a href="https://pan.baidu.com/s/10V29Hk6XJNWsd-nPHxa7fA">点这里</a></p><p>链接不可用欢迎留言反馈哟！</p><p><strong>无法正常配置和使用问题自检：</strong></p><p><strong>Q1：点击打开服务器，命令行窗口闪退？</strong></p><p>A：1.python依赖库是否安装到位 2.python是否能在CMD中启动 3.双击能否打开py文件（是否将python设置为默认打开方式）</p><p><strong>Q2：配置并打开服务器后，电脑端anki能够同步，手机端却不行？</strong></p><p>A：1.手机端anki IP是否配置正确，比如https去掉s 2.手机和电脑是否在同一局域网下 3.电脑开启了防火墙，把防火墙关掉。</p><p><strong>Q3：对于2.1.36及以后版本服务器软件开启后，不能下载插件？</strong></p><p>A：1.关闭服务器软件黑色窗口 2.双击 <strong>kill_nginx.exe</strong> (和auto_install 在一个 目录) 3.待插件下载后，再打开服务器软件</p><p><strong>参考：</strong></p><p><a href="https://www.xiebruce.top/881.html">CentOS7自建Anki同步服务器(python3)</a></p><p><a href="https://github.com/tsudoko/anki-sync-server.git">tsudoko/anki-sync-server</a></p><p><a href="https://github.com/ankicommunity/anki-sync-server">ankicommunity/anki-sync-server</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Anki </tag>
+            
+            <tag> 搭建Anki服务器 </tag>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
