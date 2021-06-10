@@ -23,7 +23,7 @@ tags:
 - IOS anki （ipad，iphone等）不能同步。
 
 **首先运行**第一次引导配置程序，双击**deploy_helper.exe**开始引导配置，对于Win7以及打开auto_install闪退的用户，请双击**deploy_helper.exe。**
-
+<!-- more -->
 # 一、python及其依赖的安装
 
 ## 1.python安装（要求版本 3.8）

@@ -31,3 +31,8 @@ valine:
   requiredFields:
     - nick
     - mail
+
+
+local_search:
+  enable: true
+  src: /js/search/local-search.js

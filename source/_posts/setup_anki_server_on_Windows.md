@@ -24,7 +24,7 @@ tags:
 
 
 **首先运行**第一次引导配置程序，双击**deploy_helper.exe**开始引导配置。
-
+<!-- more -->
 **Attention:请先打开手机Anki查看版本（设置-->高级设置-->关于），如果<2.10,阅读本教程;如果>=2.10,请移步至[Ankidoid 2.10搭建局域网服务器](https://sampuly.gitee.io/Windows%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8Ehttps%E5%8D%8F%E8%AE%AE%E7%9A%84Anki%E5%B1%80%E5%9F%9F%E7%BD%91%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.html) (如网页打不开，请看文件夹内的离线教程)**
 
 ## 一、python及其依赖的安装
