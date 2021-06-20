@@ -1,9 +1,10 @@
 ---
 title: rust中的文本断行（newline）
 date: 2021-06-09 19:27:43
+readmore: true
 tags: rust
 categories: program language
-readmore: true
+
 ---
 
 ## Introduction
