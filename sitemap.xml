@@ -74,6 +74,20 @@
   </url>
   
   <url>
+    <loc>https://dobefore.github.io/tags/gui/</loc>
+    <lastmod>2021-06-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://dobefore.github.io/tags/sciter/</loc>
+    <lastmod>2021-06-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://dobefore.github.io/tags/Anki/</loc>
     <lastmod>2021-06-20</lastmod>
     <changefreq>daily</changefreq>
@@ -96,20 +110,6 @@
   
   <url>
     <loc>https://dobefore.github.io/tags/resource/</loc>
-    <lastmod>2021-06-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dobefore.github.io/tags/gui/</loc>
-    <lastmod>2021-06-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dobefore.github.io/tags/sciter/</loc>
     <lastmod>2021-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
