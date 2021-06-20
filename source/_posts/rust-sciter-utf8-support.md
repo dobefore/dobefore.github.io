@@ -13,13 +13,7 @@ categories: program language
 
 在用Rust运行sciter app 时，控件文字包含中文会出现乱码的问题。
 
-
-
- 
-
 # How to Fix
-
- 
 
 1. 如果在html页面里面，在 `<head>`标签里加上`meta` 标签注明字符集`utf-8`。
 
