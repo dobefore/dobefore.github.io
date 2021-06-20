@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>rust_sciter_utf8_support</title>
+      <link href="/rust-sciter-utf8-support/"/>
+      <url>/rust-sciter-utf8-support/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>在用Rust运行sciter app 时，控件文字包含中文会出现乱码的问题。</p><h1 id="How-to-Fix"><a href="#How-to-Fix" class="headerlink" title="How to Fix"></a>How to Fix</h1><ol><li>如果在html页面里面，在 <code>&lt;head&gt;</code>标签里加上<code>meta</code> 标签注明字符集<code>utf-8</code>。</li></ol><pre class="language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Content-Type<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/html; charset=utf-8<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></code></pre><ol start="2"><li><p>如果是以BOM开始的utf8资源.</p><pre class="language-none"><code class="language-none">first three bytes: EF BB BF). #不是太明白</code></pre><h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1></li></ol><ul><li><a href="https://sciter.com/forums/topic/sciterloadhtml-and-utf-8/">sciterloadhtml-and-utf-8</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> program language </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> rust </tag>
+            
+            <tag> gui </tag>
+            
+            <tag> sciter </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>rust中的文本断行（newline）</title>
       <link href="/newline-differ-in-Windows-and-Linux/"/>
       <url>/newline-differ-in-Windows-and-Linux/</url>
