@@ -1,5 +1,5 @@
 ---
-title: rust_sciter_utf8_support
+title: sciter-rs控件中文显示乱码
 readmore: true
 date: 2021-06-18 12:51:00
 tags: 
