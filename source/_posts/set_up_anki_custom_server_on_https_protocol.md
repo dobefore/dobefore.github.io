@@ -122,8 +122,8 @@ Anki版本在**2.1.36-2.1.40**因为成功打包成exe，所以不需要安装Py
 **Ankidroid**：[百度网盘链接（提取码：2020）](https%3A//pan.baidu.com/s/1_sEx8PXrraQuXlsfx_Y3EA)，[F-droid市场下载](https%3A//f-droid.org/packages/com.ichi2.anki/)，[gtihub下载](https%3A//github.com/ankidroid/Anki-Android/releases)
 
 **服务器端软件（2.1.26及以前版本）**压缩包（提取码：2021）： [点这里](https://pan.baidu.com/s/1Xrn-d2j0swujkcOCVh5dxg)
-
-**服务器端软件（2.1.36及以后）**压缩包（提取码：2021）：[点这里](https://pan.baidu.com/s/10V29Hk6XJNWsd-nPHxa7fA)
+**服务器端软件（2.1.36-2.1.40）**压缩包（提取码：2021）：[点这里](https://pan.baidu.com/s/15EPOdg2TiuQB-My8e7h7SA)
+**服务器端软件（2.1.41及以后）**压缩包（提取码：2021）：[点这里](https://pan.baidu.com/s/1d1UxhiZ3scONmZ4ilqk5Kg)
 
 
 
