@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dobefore.github.io/set_up_anki_custom_server_on_https_protocol/</loc>
+    
+    <lastmod>2022-03-12</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dobefore.github.io/gen-c-dynamical-library-using-rust/</loc>
     
     <lastmod>2022-01-04</lastmod>
@@ -12,20 +19,6 @@
     <loc>https://dobefore.github.io/build-ankisyncd/</loc>
     
     <lastmod>2022-01-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dobefore.github.io/setup_anki_server_on_Windows/</loc>
-    
-    <lastmod>2021-12-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dobefore.github.io/set_up_anki_custom_server_on_https_protocol/</loc>
-    
-    <lastmod>2021-12-24</lastmod>
     
   </url>
   
@@ -81,7 +74,7 @@
 
   <url>
     <loc>https://dobefore.github.io/</loc>
-    <lastmod>2022-01-04</lastmod>
+    <lastmod>2022-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -89,63 +82,56 @@
   
   <url>
     <loc>https://dobefore.github.io/tags/Anki/</loc>
-    <lastmod>2022-01-04</lastmod>
+    <lastmod>2022-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/%E6%90%AD%E5%BB%BAAnki%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2022-01-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dobefore.github.io/tags/Windows/</loc>
-    <lastmod>2022-01-04</lastmod>
+    <lastmod>2022-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/rust/</loc>
-    <lastmod>2022-01-04</lastmod>
+    <lastmod>2022-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/resource/</loc>
-    <lastmod>2022-01-04</lastmod>
+    <lastmod>2022-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/gui/</loc>
-    <lastmod>2022-01-04</lastmod>
+    <lastmod>2022-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/sciter/</loc>
-    <lastmod>2022-01-04</lastmod>
+    <lastmod>2022-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/cross-compile/</loc>
-    <lastmod>2022-01-04</lastmod>
+    <lastmod>2022-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/cdylib/</loc>
-    <lastmod>2022-01-04</lastmod>
+    <lastmod>2022-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -154,21 +140,21 @@
   
   <url>
     <loc>https://dobefore.github.io/categories/tools/</loc>
-    <lastmod>2022-01-04</lastmod>
+    <lastmod>2022-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/categories/program-language/</loc>
-    <lastmod>2022-01-04</lastmod>
+    <lastmod>2022-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/categories/book/</loc>
-    <lastmod>2022-01-04</lastmod>
+    <lastmod>2022-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
