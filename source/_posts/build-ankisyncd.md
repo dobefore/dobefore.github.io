@@ -3,6 +3,8 @@ title: build_ankisyncd
 readmore: true
 date: 2021-11-06 13:17:10
 tags:
+- rust
+- cross-compile
 ---
 
 disable git verify ssl
