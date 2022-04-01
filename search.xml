@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>git常用命令</title>
+      <link href="/git-commonly-used-command/"/>
+      <url>/git-commonly-used-command/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><p>create local tag<br><code>git tag 0.1.2</code><br>push tag to remote<br><code>git push origin 0.1.2</code></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>gen-c-dynamical-library-using-rust-and-call</title>
       <link href="/gen-c-dynamical-library-using-rust/"/>
       <url>/gen-c-dynamical-library-using-rust/</url>
