@@ -4,11 +4,91 @@
   
     
     <entry>
+      <title>hexo-blog-config</title>
+      <link href="/hexo-blog-config/"/>
+      <url>/hexo-blog-config/</url>
+      
+        <content type="html"><![CDATA[<p>After clone blog source code into local,these steps should be done.</p><h2 id="install-nodejs-and-npm"><a href="#install-nodejs-and-npm" class="headerlink" title="install nodejs and npm"></a>install nodejs and npm</h2><p>install archive file,unpack it.</p><pre class="language-none"><code class="language-none">https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F;download&#x2F;</code></pre><p>add bin path to .bashrc</p><pre class="language-none"><code class="language-none">export PATH&#x3D;&quot;$HOME&#x2F;node-v16.14.2-linux-arm64&#x2F;bin:$PATH&quot;</code></pre><h2 id="install-theme-yun"><a href="#install-theme-yun" class="headerlink" title="install theme -yun"></a>install theme -yun</h2><p>if not,will cause</p><pre class="language-none"><code class="language-none">WARN  No layout: about&#x2F;index.htmlWARN  No layout: tags&#x2F;index.htmlWARN  No layout: categories&#x2F;index.html</code></pre><p><a href="https://hexo-theme-yun.vercel.app/guide/#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">https://hexo-theme-yun.vercel.app/guide/#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B</a></p><h2 id="generate-and-deploy"><a href="#generate-and-deploy" class="headerlink" title="generate and deploy"></a>generate and deploy</h2><pre class="language-none"><code class="language-none">hexo ghexo d</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux-commands</title>
+      <link href="/linux-commands/"/>
+      <url>/linux-commands/</url>
+      
+        <content type="html"><![CDATA[<h3 id="scp-copy-file-between-local-and-remote"><a href="#scp-copy-file-between-local-and-remote" class="headerlink" title="scp copy file between local and remote"></a>scp copy file between local and remote</h3><p>copy file from local to a remote</p><p>```</p><h1 id="eg-location2-home-ubuntu"><a href="#eg-location2-home-ubuntu" class="headerlink" title="eg:location2=/home/ubuntu"></a>eg:location2=/home/ubuntu</h1><p>scp test.txt <a href="mailto:ubuntu@192.x.x.x">ubuntu@192.x.x.x</a>:/location2</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>raspberry-pi-wifi-error</title>
+      <link href="/raspberry-pi-wifi-error/"/>
+      <url>/raspberry-pi-wifi-error/</url>
+      
+        <content type="html"><![CDATA[<p>On raspberry pi 4b,two reasons cause wifi error.</p><h2 id="usb-3-0-interfere-with-wifi"><a href="#usb-3-0-interfere-with-wifi" class="headerlink" title="usb 3.0 interfere with wifi"></a>usb 3.0 interfere with wifi</h2><p>reproduce:</p><pre class="language-none"><code class="language-none">sudo wpa_supplicant  -i wlan0 -c &#x2F;etc&#x2F;wpa_supplicant&#x2F;wpa_supplicant.confpplicant.conf Successfully initialized wpa_supplicantwlan0: Trying to associate with SSID &#39;SZMIFI&#39;wlan0: CTRL-EVENT-ASSOC-REJECT bssid&#x3D;00:00:00:00:00:00 status_code&#x3D;16wlan0: Trying to associate with SSID &#39;SZMIFI&#39;wlan0: CTRL-EVENT-ASSOC-REJECT bssid&#x3D;00:00:00:00:00:00 status_code&#x3D;16wlan0: Trying to associate with SSID &#39;SZMIFI&#39;wlan0: CTRL-EVENT-ASSOC-REJECT bssid&#x3D;00:00:00:00:00:00 status_code&#x3D;16wlan0: Trying to associate with SSID &#39;SZMIFI&#39;wlan0: CTRL-EVENT-ASSOC-REJECT bssid&#x3D;00:00:00:00:00:00 status_code&#x3D;16wlan0: CTRL-EVENT-SSID-TEMP-DISABLED id&#x3D;0 ssid&#x3D;&quot;SZMIFI&quot; auth_failures&#x3D;1 duration&#x3D;10 reason&#x3D;CONN_FAILEDwlan0: CTRL-EVENT-SSID-REENABLED id&#x3D;0 ssid&#x3D;&quot;SZMIFI&quot;wlan0: Trying to associate with SSID &#39;SZMIFI&#39;wlan0: CTRL-EVENT-ASSOC-REJECT bssid&#x3D;00:00:00:00:00:00 status_code&#x3D;16wlan0: CTRL-EVENT-SSID-TEMP-DISABLED id&#x3D;0 ssid&#x3D;&quot;SZMIFI&quot; auth_failures&#x3D;2 duration&#x3D;20 reason&#x3D;CONN_FAILED^Cnl80211: deinit ifname&#x3D;p2p-dev-wlan0 disabled_11b_rates&#x3D;0p2p-dev-wlan0: CTRL-EVENT-TERMINATING nl80211: deinit ifname&#x3D;wlan0 disabled_11b_rates&#x3D;0</code></pre><p>fix: switch to usb 2.0</p><h2 id="HDMI-is-jamming-its-own-wifi"><a href="#HDMI-is-jamming-its-own-wifi" class="headerlink" title="HDMI is jamming its own wifi"></a>HDMI is jamming its own wifi</h2><p>screen definition higher than 1920*1080 will cause wifi stop working.</p><p>fix:keep screen definition to 1920*1080 and apply,in the Preference-&gt;Screen Configuration</p><h2 id="keyboard-and-mouce-sometimes-dont-respond"><a href="#keyboard-and-mouce-sometimes-dont-respond" class="headerlink" title="keyboard and mouce sometimes dont respond."></a>keyboard and mouce sometimes dont respond.</h2><p>fix: disable hdmi until raspberry pi boot with keyboard and mouce</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://hackaday.com/2019/11/28/raspberry-pi-4-hdmi-is-jamming-its-own-wifi/">https://hackaday.com/2019/11/28/raspberry-pi-4-hdmi-is-jamming-its-own-wifi/</a></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> raspberry-pi </tag>
+            
+            <tag> wifi </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>docker-command</title>
+      <link href="/docker-command/"/>
+      <url>/docker-command/</url>
+      
+        <content type="html"><![CDATA[<p>difference between image and container<br>We can build or image on local or from docker hub.Then We run container from image,you can run multi-containers from a image with <code>--name=appname</code>.</p><h2 id="install-docker"><a href="#install-docker" class="headerlink" title="install docker"></a>install docker</h2><pre class="language-none"><code class="language-none">curl -fsSL https:&#x2F;&#x2F;get.docker.com -o get-docker.shsudo sh get-docker.sh</code></pre><h2 id="Add-a-Non-Root-User-to-the-Docker-Group"><a href="#Add-a-Non-Root-User-to-the-Docker-Group" class="headerlink" title="Add a Non-Root User to the Docker Group"></a>Add a Non-Root User to the Docker Group</h2><p>this require you are login to non-root user on OS</p><pre class="language-none"><code class="language-none">sudo usermod -aG docker Pi</code></pre><h2 id="remove-docker"><a href="#remove-docker" class="headerlink" title="remove docker"></a>remove docker</h2><pre class="language-none"><code class="language-none">sudo apt-get purge docker-cesudo rm -rf &#x2F;var&#x2F;lib&#x2F;docker</code></pre><h2 id="build-docker-image"><a href="#build-docker-image" class="headerlink" title="build docker image"></a>build docker image</h2><p>image_name:tag</p><pre class="language-none"><code class="language-none">sudo docker build -t ankisyncd:latest .</code></pre><h2 id="container-run-start-stop-remove"><a href="#container-run-start-stop-remove" class="headerlink" title="container run,start,stop,remove"></a>container run,start,stop,remove</h2><h3 id="run-container-in-foreground-add-d-to-run-in-background"><a href="#run-container-in-foreground-add-d-to-run-in-background" class="headerlink" title="run container in foreground (add -d to run in background)"></a>run container in foreground (add -d to run in background)</h3><pre class="language-none"><code class="language-none">sudo docker run -it ankisyncd:latest</code></pre><h3 id="start-and-stop-container"><a href="#start-and-stop-container" class="headerlink" title="start and stop container"></a>start and stop container</h3><pre class="language-none"><code class="language-none">docker container stop container_namedocker container start container_name</code></pre><h3 id="look-up-IP-address-in-a-container"><a href="#look-up-IP-address-in-a-container" class="headerlink" title="look up IP address in a container"></a>look up IP address in a container</h3><p><code>docker ps -a</code> to get container_name</p><pre class="language-none"><code class="language-none">docker inspect container_name | grep Address</code></pre><h3 id="remove-image-and-container"><a href="#remove-image-and-container" class="headerlink" title="remove image and container"></a>remove image and container</h3><p>remove image</p><p>run <code>docker images</code> to get <code>IMAGE ID</code>,<br>then run <code>sudo docker rmi 8458e1ca9dca</code></p><p>remove container</p><p>run <code>docker ps -a</code> to get <code>CONTAINER ID</code>,<br>then run <code>sudo docker rm 97590f6d5deb</code></p><h2 id="Volume-for-persist-data"><a href="#Volume-for-persist-data" class="headerlink" title="Volume for persist data"></a>Volume for persist data</h2><p>add <code>VOLUME /app</code> in Dockerfile</p><p>show Volume</p><pre class="language-none"><code class="language-none">docker volume list</code></pre><p>remove the volume by <code>volume name</code></p><pre class="language-none"><code class="language-none">docker volume rm 962b2d970bcd96de860b348130a84aa86c0aaa55378b3dce35225659679ff808</code></pre><h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="https://phoenixnap.com/kb/docker-on-raspberry-pi">https://phoenixnap.com/kb/docker-on-raspberry-pi</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git常用命令</title>
       <link href="/git-commonly-used-command/"/>
       <url>/git-commonly-used-command/</url>
       
-        <content type="html"><![CDATA[<h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><p>create local tag<br><code>git tag 0.1.2</code><br>push tag to remote<br><code>git push origin 0.1.2</code></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="config-user"><a href="#config-user" class="headerlink" title="config user"></a>config user</h3><pre class="language-none"><code class="language-none">git config --global user.name &quot;dobefore&quot;git config --global user.email 1432338032@qq.com</code></pre><h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><p>create local tag<br><code>git tag 0.1.2</code><br>push tag to remote<br><code>git push origin 0.1.2</code></p><h3 id="fetch-and-checkout-to-other-people’s-pull-request"><a href="#fetch-and-checkout-to-other-people’s-pull-request" class="headerlink" title="fetch and checkout to other people’s pull request"></a>fetch and checkout to other people’s pull request</h3><pre class="language-none"><code class="language-none">#To fetch a remote PR into your local repo,git fetch origin pull&#x2F;PRID&#x2F;head:BRANCHNAMEgit checkout BRANCHNAME</code></pre>]]></content>
       
       
       
