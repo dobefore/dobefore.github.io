@@ -35,11 +35,11 @@ tags:
 
 有如下弹窗请点击是。
 
-### 
+[![bT8bQg.png](https://s1.ax1x.com/2022/03/12/bT8bQg.png)](https://imgtu.com/i/bT8bQg)
 
 #### （2）设置手机Anki同步地址
 
-1.在桌面找到`rootCA.crt` ，用QQ、USB、微信等发送文件到手机，并在手机中找到它，触摸弹出证书安装界面。进安装一次，后续部署过程中无需此操作。
+1.在桌面找到`rootCA.crt` ，用QQ、USB、微信等发送文件到手机，并在手机中找到它，触摸弹出证书安装界面。仅安装一次，后续部署过程中无需此操作。
 
 [![bTGKSO.png](https://s1.ax1x.com/2022/03/12/bTGKSO.png)](https://imgtu.com/i/bTGKSO)
 
@@ -47,9 +47,9 @@ tags:
 
 2.手机开启在定义同步服务器，进入 设置->高级设置->自定义同步服务器（点击后勾选）
 
-2.填写引导程序界面的同步地址和媒体文件同步地址，点击开关进入下一步。。。
+3.填写引导程序界面的同步地址和媒体文件同步地址，点击开关进入下一步。。。
 
-[![bT8voq.png](https://s1.ax1x.com/2022/03/12/bT8voq.png)](https://imgtu.com/i/bT8voq)
+[![jC122d.png](https://s1.ax1x.com/2022/06/23/jC122d.png)](https://imgtu.com/i/jC122d)
 
 
 
