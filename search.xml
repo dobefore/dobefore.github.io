@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>termux-settings</title>
+      <link href="/termux-settings/"/>
+      <url>/termux-settings/</url>
+      
+        <content type="html"><![CDATA[<h2 id="install-linux-distribution"><a href="#install-linux-distribution" class="headerlink" title="install linux distribution"></a>install linux distribution</h2><pre class="language-none"><code class="language-none">pkg install proot-distroproot-distro listproot-distro install ubuntu# or save command to a scriptproot-distro login ubuntu</code></pre><h2 id="settings-in-linux-distribution"><a href="#settings-in-linux-distribution" class="headerlink" title="settings in linux distribution"></a>settings in linux distribution</h2><h3 id="install-ssh"><a href="#install-ssh" class="headerlink" title="install ssh"></a>install ssh</h3><pre class="language-none"><code class="language-none">pkg install openssh-server</code></pre><p>start sshd</p><pre class="language-none"><code class="language-none">&#x2F;etc&#x2F;init.d&#x2F;ssh stop&#x2F;etc&#x2F;init.d&#x2F;ssh start</code></pre><p>get username <code>whoami</code></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>influence</title>
       <link href="/influence/"/>
       <url>/influence/</url>

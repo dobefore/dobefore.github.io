@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dobefore.github.io/termux-settings/</loc>
+    
+    <lastmod>2022-07-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dobefore.github.io/set_up_anki_custom_server_on_https_protocol/</loc>
     
     <lastmod>2022-06-23</lastmod>
@@ -123,7 +130,7 @@
 
   <url>
     <loc>https://dobefore.github.io/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -131,112 +138,112 @@
   
   <url>
     <loc>https://dobefore.github.io/tags/Anki/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/%E6%90%AD%E5%BB%BAAnki%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/rust/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/resource/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/gui/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/sciter/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/cross-compile/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/cdylib/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/git/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/docker/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/hexo/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/blog/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/linux/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/raspberry-pi/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/wifi/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/creative-thinking/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -245,28 +252,28 @@
   
   <url>
     <loc>https://dobefore.github.io/categories/tools/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/categories/program-language/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/categories/book/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/categories/book-digest/</loc>
-    <lastmod>2022-06-23</lastmod>
+    <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
