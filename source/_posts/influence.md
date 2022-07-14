@@ -20,5 +20,8 @@ it provides a convenient shortcut for determining how to behave but, at the same
  situation:被朋友邀请参加party,朋友带货买东西，自己似乎不得不买个东西
 
  we most prefer to say yes to the requests of someone we know and like.
- 6. authority
- 7. scarcity
+ 6. authority. Obedience of authority. 
+ 7. scarcity .the rule of the few.
+ example : deadline tactic.
+
+ Freedoms once granted will not be relinquished without a fight.
