@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>common-vim-commands</title>
+      <link href="/common-vim-commands/"/>
+      <url>/common-vim-commands/</url>
+      
+        <content type="html"><![CDATA[<pre class="language-none"><code class="language-none">行移动：$:  将光标移动到当前行的行尾0:  将光标移动到当前行的行首在屏幕中移动:gg:  移动到文件开头M:  移动到屏幕中间L:  移动到一屏末尾字符删除:x:  删除当前光标所在处的字符X:  删除当前光标左边的字符行删除:dd:  删除当前光标处的一整行&#x3D;D文本复制、剪切与粘贴:y:  复制，p:粘贴yy:  复制一整行撤销修改、重做与保存:u:  撤销上一步的操作。文本的查找与替换:&#x2F;string   正向查找?string   反向查找设置高亮显示    :set hls    *按键将当前光标处的单词高亮显示，使用n浏览下一个查找高亮的结果:wq save and exit</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vim </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>adptive-thing</title>
       <link href="/adptive-thinkng/"/>
       <url>/adptive-thinkng/</url>
