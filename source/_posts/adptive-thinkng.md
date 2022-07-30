@@ -1,5 +1,5 @@
 ---
-title: adptive-thing
+title: adptive-thinkng
 readmore: true
 date: 2022-07-19 21:05:36
 tags: psychology
