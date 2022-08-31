@@ -4,6 +4,149 @@
   
     
     <entry>
+      <title>set_up_anki_custom_server_new</title>
+      <link href="/set-up-anki-custom-server-new/"/>
+      <url>/set-up-anki-custom-server-new/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在文章<a href="https://dobefore.github.io/set_up_anki_custom_server_on_https_protocol/%E9%87%8C%E9%9D%A2%E6%8F%90%E4%BE%9B%E4%BA%86Ankidroid%E5%87%A0%E4%B9%8E%E5%85%A8%E7%89%88%E6%9C%AC%EF%BC%88&gt;2.8%EF%BC%89%E7%9A%84%E6%94%AF%E6%8C%81%EF%BC%8C%E4%BD%86%E6%98%AF%E7%94%B1%E4%BA%8E%E9%83%A8%E7%BD%B2%E8%BD%AF%E4%BB%B6%E5%85%BC%E5%AE%B9%E6%80%A7%E5%B9%B6%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E6%BB%B4%E5%9C%A8%E6%89%80%E6%9C%89Windows%E6%9C%BA%E5%9E%8B%E4%B8%8A%E8%BF%90%E8%A1%8C%E3%80%82%E6%89%80%E4%BB%A5%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E4%BB%8B%E7%BB%8D%E6%9B%B4%E5%B9%BF%E5%85%BC%E5%AE%B9%E6%80%A7%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E9%9C%80%E8%A6%81%E5%AE%89%E8%A3%85%E6%88%91%E4%BB%AC%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD%E6%8F%90%E4%BE%9B%E7%9A%84Ankidroid%E7%89%88%E6%9C%AC%EF%BC%88%E5%BD%93%E7%84%B6%E4%B9%9F%E5%8F%AF%E4%BB%A5%E7%AD%89%E5%BE%852.16%E6%AD%A3%E5%BC%8F%E7%89%88%E7%9A%84%E5%8F%91%E5%B8%83%EF%BC%89%EF%BC%8C%E5%85%B3%E4%BA%8E%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E7%89%88%E6%9C%AC%E8%A6%81%E6%B1%82%E7%9C%8B%E8%BF%99%E9%87%8C[ankidroid%E7%89%88%E6%9C%AC%E8%A6%81%E6%B1%82%E5%8E%9F%E5%9B%A0%E4%B8%8E%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9](#ankidroid%E7%89%88%E6%9C%AC%E8%A6%81%E6%B1%82%E5%8E%9F%E5%9B%A0%E4%B8%8E%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9)%E3%80%82">https://dobefore.github.io/set_up_anki_custom_server_on_https_protocol/里面提供了Ankidroid几乎全版本（&gt;2.8）的支持，但是由于部署软件兼容性并不能正常滴在所有Windows机型上运行。所以这篇文章介绍更广兼容性的方法，需要安装我们文件夹中提供的Ankidroid版本（当然也可以等待2.16正式版的发布），关于为什么会有版本要求看这里[ankidroid版本要求原因与版本选择](#ankidroid版本要求原因与版本选择)。</a></p><p>接下来是一份相当简单的引导教程，可以找个合适的位置存放下载好的文件夹用来<strong>存放同步数据</strong>。</p><h2 id="第一步-打开配置文件ankisyncd-toml，设置你的同步账号和密码"><a href="#第一步-打开配置文件ankisyncd-toml，设置你的同步账号和密码" class="headerlink" title="第一步  打开配置文件ankisyncd.toml，设置你的同步账号和密码"></a>第一步  打开配置文件ankisyncd.toml，设置你的同步账号和密码</h2><p>如下图，输入后记得保存。<br><a href="https://imgse.com/i/v4GRLq"><img src="https://s1.ax1x.com/2022/08/31/v4GRLq.png" alt="v4GRLq.png" loading="lazy"></a></p><h2 id="第二步-双击启动ankiserver，查看同步地址（用于Ankidroid的配置）"><a href="#第二步-双击启动ankiserver，查看同步地址（用于Ankidroid的配置）" class="headerlink" title="第二步 双击启动ankiserver，查看同步地址（用于Ankidroid的配置）"></a>第二步 双击启动ankiserver，查看同步地址（用于Ankidroid的配置）</h2><p>如果之前已经打开，请重新打开。<br><a href="https://imgse.com/i/v4Gfe0"><img src="https://s1.ax1x.com/2022/08/31/v4Gfe0.png" alt="v4Gfe0.png" loading="lazy"></a></p><h2 id="第三步-打开Anki，输入账号-来自第一步-，点击同步"><a href="#第三步-打开Anki，输入账号-来自第一步-，点击同步" class="headerlink" title="第三步 打开Anki，输入账号(来自第一步)，点击同步"></a>第三步 打开Anki，输入账号(来自第一步)，点击同步</h2><p><a href="https://imgse.com/i/v4gcLV"><img src="https://s1.ax1x.com/2022/08/31/v4gcLV.png" alt="v4gcLV.png" loading="lazy"></a></p><h2 id="第四步-安卓手机，连接到电脑相同的局域网"><a href="#第四步-安卓手机，连接到电脑相同的局域网" class="headerlink" title="第四步 安卓手机，连接到电脑相同的局域网"></a>第四步 安卓手机，连接到电脑相同的局域网</h2><p><del>设置 -&gt; 高级设置 -&gt; 自定义同步服务器</del>（此为老版配置地址）,请使用文件夹内的安装包或者等待正式版<code>2.16</code>的发布，以此进入设置–&gt;同步–&gt;自定义同步服务器。<br><a href="https://imgse.com/i/v4GhwV"><img src="https://s1.ax1x.com/2022/08/31/v4GhwV.jpg" alt="v4GhwV.jpg" loading="lazy"></a></p><h2 id="一些额外话"><a href="#一些额外话" class="headerlink" title="一些额外话"></a>一些额外话</h2><p>为便于后续服务器软件打开，你可以将软件发送到开始菜单和桌面，这样你将能够通过开始菜单搜索找到我们的应用，<br>操作方法也很简单，在我们文件夹找到<code>send.exe</code>,双击它，允许管理员运行。<br><a href="https://imgse.com/i/v4GqyR"><img src="https://s1.ax1x.com/2022/08/31/v4GqyR.png" alt="v4GqyR.png" loading="lazy"></a></p><p><a href="https://imgse.com/i/v4Gbl9"><img src="https://s1.ax1x.com/2022/08/31/v4Gbl9.png" alt="v4Gbl9.png" loading="lazy"></a></p><h3 id="Ankidroid版本要求原因与版本选择"><a href="#Ankidroid版本要求原因与版本选择" class="headerlink" title="Ankidroid版本要求原因与版本选择"></a>Ankidroid版本要求原因与版本选择</h3><p>因为安卓安全性相关策略，较新的安卓系统会要求APP HTTPS连接，AnkiDroid 2.10-2.15.6都是基于这样设计的，在新版本2.16(目前为测试版)允许HTTP不安全连接，同样也降低了我们部署的难度和繁琐程度。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Anki </tag>
+            
+            <tag> 搭建Anki服务器 </tag>
+            
+            <tag> windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>trigonomrtry(三角数学)</title>
+      <link href="/trigonomrtry/"/>
+      <url>/trigonomrtry/</url>
+      
+        <content type="html"><![CDATA[<p>from &lt;&lt;普林斯顿微积分读本&gt;&gt;</p><h2 id="角度与弧度（radians）"><a href="#角度与弧度（radians）" class="headerlink" title="角度与弧度（radians）"></a>角度与弧度（radians）</h2><p><a href="https://imgtu.com/i/vBPFcd"><img src="https://s1.ax1x.com/2022/08/17/vBPFcd.png" alt="vBPFcd.png" loading="lazy"></a></p><h2 id="basic-formula"><a href="#basic-formula" class="headerlink" title="basic formula"></a>basic formula</h2><p>$$<br>angle\ in\ radians  = \frac{\pi}{180°}<br>$$<br><a href="https://imgtu.com/i/vBPi1H"><img src="https://s1.ax1x.com/2022/08/17/vBPi1H.png" alt="vBPi1H.png" loading="lazy"></a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> math </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>island_economy</title>
+      <link href="/island-economy/"/>
+      <url>/island-economy/</url>
+      
+        <content type="html"><![CDATA[<p>from : How an Economy Grows and Why It Crashes&lt;&lt;小岛经济学&gt;&gt;,Peter D. Schiff  Andrew J. Schiff<br>前提：islander will eat 1 fish per day .</p><h2 id="About-employee-and-employer"><a href="#About-employee-and-employer" class="headerlink" title="About employee and employer"></a>About employee and employer</h2><p>A worker is free to : </p><ol><li>underconsume to build a net(capital ).</li><li>take out a business loan to nuy a net.</li><li>work for someone who already has a net.</li></ol><p><strong>fish transport</strong>:Finnigan,a strong man,can deliver 100 fish per day,at a 2% freight fee,he earned 2 fish per day. Murray,having taken out a business loan to build a fish cart,he can deliver 300 fish per day,at a 1% rate,he earned 3 fish per day. assuming Finnigan can deliver 400 fish with a cart,as Finnigan can generate 4 fish in income at a 1% rate,Murray offer him 3 fish as employee.</p><p><strong>about paper money</strong>: people love getting stuff for free ,they hate paying taxes .if he could find a way to make it look like he was giving something to the islanders for free ,How could they give away more than they took ?<br>After storm destroy,many of our citizens are hutless and fishless,politician say ‘I will institute a government reconstruction program for our neediest citizens to repair the damage.’</p><p>But, there were not enough fish reserves to finance the spending plans.The government would issue paper money called Fish Reserve Notes,fish:note 1:1.To get support ,government hand out notes to fund .<br>Soon,more notes than the government ‘s account in bank had fish to redeem(兑换？), use official fish (generate new fish from discarded fish parts) to pay back depositors.fish:note 9:10 (10 official fish from 9 genuine fish)</p><p>government establish a fishing department.To guarantee people ,create a new agency insurance corporation with Senate behind their deposits.</p><p>then official  fish:real fish  -&gt; 5:4 -&gt; 3:2 -&gt; 2:1 .now most ate 2 per day ,at minimum .prices for every thing had to go up to keep pace with the diminished nutritional value of fish. ‘fishflatten’ was born and discoraged savings , unemployment high.There is no fish in the bank.</p><p>One island,Sinopia,catch fish by hand,no savings,bank,credit,business,offered to exchange fish for fish reserve notes.The transactions were a huge boom to Usonia,ie boost local economy ,deposits of fish swell .fishflation disappear .</p><p>Sinopia can build factory ,sold these goods to Usonians for fish reserve notes.</p><p>Reality check:Many of these dollars held by foreigners are typically deposited in American banks, where they can be borrowed by Americans. That way we can spend even if we don’t save.<br>Usonia work transfer to “service sector” and less capital intense ,e.g. chefs,story teller .</p><h2 id="About-export"><a href="#About-export" class="headerlink" title="About export"></a>About export</h2><p><strong>trade surplus</strong>  :the country exported much more than it import(sells more aboard than it ).trade deficit is the reverse . A country with trade surplus will create a international demand for its currency .Strong trading positions tend to strengthen a country ‘s currency .BUt when a country ‘s currency rises,its products become more expensive . “a global currency war “–depress currency . In addition,a cheap currency simultaneousLy makes imports morexpensive.</p><p>One island leader withdraw much more fish from bank , causing Usonia fishflation.Usonia leaders close the bank ‘s fish window to foreign deposits. This causes value of Notes to drop,but it finally stablize.Although the gap between Senate spending and what it raised in taxes widens,<br>the notes that are used to pay for fresh fish from foreign sources are exported and never are redeemed for fish .</p><h2 id="about-hut-loan-market"><a href="#about-hut-loan-market" class="headerlink" title="about hut loan market"></a>about hut loan market</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> economy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>raspberry pico观察日记</title>
+      <link href="/rpi-pico-diary/"/>
+      <url>/rpi-pico-diary/</url>
+      
+        <content type="html"><![CDATA[<p>每次按住<code>bootsel</code>接入pc usb时，会擦除pico原来的程序（.uf2）;下载firmware到pico,第二次只是插入usb供电，不会擦除程序。</p><p>requirements (Installation of development dependencies):</p><ul><li>Toolchain support for the cortex-m0+ processors in the rp2040 (<code>thumbv6m-none-eabi</code>)<pre class="language-none"><code class="language-none">rustup target install thumbv6m-none-eabicargo install flip-link# This is our suggested default &#39;runner&#39;cargo install probe-run# If you want to use elf2uf2-rs instead of probe-run, instead do...cargo install elf2uf2-rs --locked</code></pre></li></ul><p>run with <code>elf2uf2</code> (Loading a UF2 over USB)<br>Make sure your .cargo/config contains the following</p><pre class="language-toml" data-language="toml"><code class="language-toml"><span class="token punctuation">[</span><span class="token table class-name">target.thumbv6m-none-eabi</span><span class="token punctuation">]</span><span class="token key property">runner</span> <span class="token punctuation">=</span> <span class="token string">"elf2uf2-rs -d"</span></code></pre><p>connect pico to pc by pushing <code>bootsel</code> ,and then run <code>cargo run</code></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> raspberry-pico </tag>
+            
+            <tag> embeded </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>rust-with-correct-SQL</title>
+      <link href="/rust-with-correct-SQL/"/>
+      <url>/rust-with-correct-SQL/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> rust </tag>
+            
+            <tag> sqlite </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>alternating-current</title>
+      <link href="/alternating-current/"/>
+      <url>/alternating-current/</url>
+      
+        <content type="html"><![CDATA[<h2 id="alternating-current"><a href="#alternating-current" class="headerlink" title="alternating current"></a>alternating current</h2><p> <strong>an alternating emf</strong> which continuously changes its magnitude and whose direction is changed many times per second</p><h2 id="Direct-current"><a href="#Direct-current" class="headerlink" title="Direct current"></a>Direct current</h2><h3 id="Manifestations-of-Electric-Current"><a href="#Manifestations-of-Electric-Current" class="headerlink" title="Manifestations of Electric Current"></a>Manifestations of Electric Current</h3><p><strong>electric current</strong> is the process of motion of charges in a body when a potential difference is created between its parts. charge carriers are either ions (positively or negatively charged molecules or atoms) or free electrons. </p><p> <strong>direct or constant current</strong>: The positive electrode always remains positive and the negative electrode remains negative: the current in the external circuit flows in the same direction, viz. from the positive electrode to the negative one. </p><p>When the circuits are closed, the following phenomena will be observed.电流的各种效应：</p><ul><li><p> thermal effect （glowing of the bulb）</p></li><li><p> magnetic effect</p></li><li><p> chemical effect</p></li></ul><p>  <strong>category of conductors</strong>： first-kind conductors: carbon and metals. the second-kind conductors is electrolytes（电解质）,which are decomposed by an electric current into components。</p><p>  <strong>Volta’s rule</strong>: in a circuit consisting of an arbitrary number of different metals (first-kind conductors), the  (voltage) is equal to zero.<br>   <strong>galvanic cells（原电池）</strong>: an electric cell that generates an electromotive force by an irreversible conversion of chemical to electrical energy ;cannot be rechargeed .</p><p>  <strong>Wimshurt machines（静电发电机）</strong>：</p><h2 id="Chemical-and-Thermal-Generators"><a href="#Chemical-and-Thermal-Generators" class="headerlink" title="Chemical and Thermal Generators"></a>Chemical and Thermal Generators</h2><p><strong>Voltanic cell</strong>: Two different metals (copper and zinc) of the circuit are in contact with an electrolyte (sulphuric acid solution). </p><h3 id="Accumulators-充电"><a href="#Accumulators-充电" class="headerlink" title="Accumulators (充电)"></a>Accumulators (充电)</h3><p>Accumulators：constructed a cell with two lead electrodes immersed in sulphuric acid solution. a current is passed through this cell for a certain time, the products of electrolysis are deposited on its electrodes（电极） and enter into chemical reactions with the electrodes. In this state, the cell itself is a current source which, when connected to a circuit, can create a temporary current in it. （the emf（electricmotive force/voltage ） of polarisation （极化））</p><h3 id="Thermocouples-（热电偶）"><a href="#Thermocouples-（热电偶）" class="headerlink" title="Thermocouples （热电偶）"></a>Thermocouples （热电偶）</h3><p>Volta’s rule is true only if all the junctions (the regions of contact between conductors) are at the same temperature .<br><strong>thermoelectromotive force (thermo-emf) （热电动力，温差电动势）</strong>:in a circuit composed of different metals while junctions are at different temperatures, a certain emf operates.</p><h2 id="Electromagnetic-Induction"><a href="#Electromagnetic-Induction" class="headerlink" title="Electromagnetic Induction"></a>Electromagnetic Induction</h2><p>decomposition of magnetic induction .</p><p>We want to know <strong>Conditions for Emergence of Induced Current</strong>,here is the formula:<br>$$<br>B_\bot=B\sin \varphi<br>$$</p><p>accumlators:<br>thermocouples(热电偶):</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> physics </tag>
+            
+            <tag> electronics </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>snow-crash</title>
+      <link href="/snow-crash/"/>
+      <url>/snow-crash/</url>
+      
+        <content type="html"><![CDATA[<p>form book &lt;<snow crash>&gt; </p><h2 id="About-employee-and-employer"><a href="#About-employee-and-employer" class="headerlink" title="About employee and employer"></a>About employee and employer</h2><p>A worker is free to : </p><ol><li>underconsume to build a net.</li><li>take out a business loan to nuy a net.</li><li>work for someone who already has a net.</li></ol><p><strong>fish transport</strong>:Finnigan,a strong man,can deliver 100 fish per day,at a 2% freight fee,he earned 2 fish per day. Murray,having taken out a business loan to build a fish cart,he can deliver 300 fish per day,at a 1% rate,he earned 3 fish per day. assuming Finnigan can deliver 400 fish with a cart,as Finnigan can generate 4 fish in income at a 1% rate,Murray offer him 3 fish as employee.</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> economy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AI-future-ing</title>
       <link href="/AI-future-ing/"/>
       <url>/AI-future-ing/</url>
