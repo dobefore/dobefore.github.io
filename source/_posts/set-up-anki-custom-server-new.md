@@ -13,11 +13,11 @@ tags:
 接下来是一份相当简单的引导教程，可以找个合适的位置存放下载好的文件夹用来**存放同步数据**。
 
 ## 第一步  打开配置文件ankisyncd.toml，设置你的同步账号和密码
-如下图，账号可以随意填写，输入后记得保存。
+如果跳过这一步的话，会得到账号username:`test`,password:`123456`。如下图，账号可以随意填写，输入后记得保存。
 [![v4GRLq.png](https://s1.ax1x.com/2022/08/31/v4GRLq.png)](https://imgse.com/i/v4GRLq)
 
 ## 第二步 双击启动ankiserver，查看同步地址（用于Ankidroid的配置）
-[![v4Gfe0.png](https://s1.ax1x.com/2022/08/31/v4Gfe0.png)](https://imgse.com/i/v4Gfe0)
+[![xvcWQO.png](https://s1.ax1x.com/2022/11/07/xvcWQO.png)](https://imgse.com/i/xvcWQO)
 
 ## 第三步 打开Anki，输入账号(来自第一步)，点击同步
 保持第二步服务端处于开启状态（黑屏打开状态），到**工具（tools）-->首选项(preferences)-->网络（network）-->退出账号(logout)**,然后退出Anki再打开，输入第一步的账号。
@@ -25,7 +25,7 @@ tags:
 
 ## 第四步 安卓手机，连接到电脑相同的局域网
 ~~设置 -> 高级设置 -> 自定义同步服务器~~（此为老版配置地址,请使用文件夹内的安装包或者等待正式版`2.16`的发布，以此进入**设置-->同步-->自定义同步服务器**，设置同步地址和媒体文件同步地址。
-[![v4GhwV.jpg](https://s1.ax1x.com/2022/08/31/v4GhwV.jpg)](https://imgse.com/i/v4GhwV)
+[![xvy5cD.jpg](https://s1.ax1x.com/2022/11/07/xvy5cD.jpg)](https://imgse.com/i/xvy5cD)
 
 ## 一些额外话
 为便于后续服务器软件打开，你可以将软件发送到开始菜单和桌面，这样你将能够通过开始菜单搜索找到我们的应用，
