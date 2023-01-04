@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>在rust程序中调用c函数</title>
+      <link href="/call-c-from-rust/"/>
+      <url>/call-c-from-rust/</url>
+      
+        <content type="html"><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>我想写一段rust程序，它能够接收到用户键盘输入就会立刻退出，即按任意键退出，但是不用用户敲击<code>enter</code>键。纯用rust写似乎不好实现，而利用现成的c语言却能很好地解决问题。</p><p>我们用c语言实现上面的功能，并在rust程序中调用c函数，我们把c静态编译成静态库，静态链接。</p><h2 id="代码实现细节"><a href="#代码实现细节" class="headerlink" title="代码实现细节"></a>代码实现细节</h2><p>我们使用构建库<code>cc</code>来编译c程序为静态库，利用rust构建脚本来搜索查找静态库。我们在main模块里面引入c库函数。</p><p>新建一个项目 <code>cargo new callc</code>.下面是各个文件的内容构成。</p><blockquote><p>src/press.c</p></blockquote><p>c代码解释：<code>getch</code>函数从标准输入流读取一个字符，而不需要用户输入enter键，因为直接从键盘Buffer里面读取。一旦字符被读取，程序会退出。</p><pre class="language-none"><code class="language-none">#include &lt;stdio.h&gt;#include &lt;conio.h&gt;int press() &#123;    printf(&quot;Press any key to exit...\n&quot;);    getch();    return 0;&#125;</code></pre><blockquote><p>Cargo.toml</p></blockquote><pre class="language-none"><code class="language-none">build&#x3D;&quot;build.rs&quot;[build-dependencies]cc &#x3D; &quot;1.0.78&quot;</code></pre><blockquote><p>src/main.rs</p></blockquote><p>声明我们要使用函数<code>press</code></p><pre class="language-none"><code class="language-none">&#x2F;&#x2F; Note the lack of the &#96;#[link]&#96; attribute. We’re delegating the responsibility&#x2F;&#x2F; of selecting what to link over to the build script rather than hard-coding&#x2F;&#x2F; it in the source file.extern &#123; fn press(); &#125;fn main() &#123;    unsafe &#123; press(); &#125;&#125;</code></pre><blockquote><p>build.rs</p></blockquote><p>编译<code>press.c</code>为静态库，紧接着在位置<code>OUT_DIR</code>环境变量所指示的目录下面找到静态库便于后面的链接。</p><pre class="language-none"><code class="language-none">use std::env;fn main() &#123;    &#x2F;&#x2F; out dir is in target&#x2F;release&#x2F;build     let out_dir &#x3D; env::var(&quot;OUT_DIR&quot;).unwrap();    &#x2F;&#x2F; Tell Cargo that if the given file changes, to rerun this build script.    println!(&quot;cargo:rerun-if-changed&#x3D;src&#x2F;press.c&quot;);    &#x2F;&#x2F; Use the &#96;cc&#96; crate to build a C file and statically link it.    cc::Build::new()        .file(&quot;src&#x2F;press.c&quot;)        .compile(&quot;press&quot;);            println!(&quot;cargo:rustc-link-search&#x3D;native&#x3D;&#123;&#125;&quot;, out_dir);    println!(&quot;cargo:rustc-link-lib&#x3D;static&#x3D;press&quot;);&#125;</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] <a class="link"   href="https://doc.rust-lang.org/cargo/reference/build-script-examples.html" >https://doc.rust-lang.org/cargo/reference/build-script-examples.html<i class="fas fa-external-link-alt"></i></a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> rust </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>set_up_anki_custom_server_new</title>
       <link href="/set-up-anki-custom-server-new/"/>
       <url>/set-up-anki-custom-server-new/</url>
