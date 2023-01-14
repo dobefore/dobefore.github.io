@@ -86,27 +86,6 @@
     
     
     <entry>
-      <title>rust-with-correct-SQL</title>
-      <link href="/rust-with-correct-SQL/"/>
-      <url>/rust-with-correct-SQL/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> rust </tag>
-            
-            <tag> sqlite </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>common-vim-commands</title>
       <link href="/common-vim-commands/"/>
       <url>/common-vim-commands/</url>
@@ -170,7 +149,7 @@
       <link href="/linux-commands/"/>
       <url>/linux-commands/</url>
       
-        <content type="html"><![CDATA[<h3 id="scp-copy-file-between-local-and-remote"><a href="#scp-copy-file-between-local-and-remote" class="headerlink" title="scp copy file between local and remote"></a>scp copy file between local and remote</h3><p>copy file from local to a remote</p><p>```</p><h1 id="eg-location2-home-ubuntu"><a href="#eg-location2-home-ubuntu" class="headerlink" title="eg:location2=/home/ubuntu"></a>eg:location2=/home/ubuntu</h1><p>scp test.txt <a class="link"   href="mailto:ubuntu@192.x.x.x" >ubuntu@192.x.x.x<i class="fas fa-external-link-alt"></i></a>:/location2</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="scp-copy-file-between-local-and-remote"><a href="#scp-copy-file-between-local-and-remote" class="headerlink" title="scp copy file between local and remote"></a>scp copy file between local and remote</h3><p>copy file from local to a remote</p><p>```</p><h1 id="eg-location2-home-ubuntu"><a href="#eg-location2-home-ubuntu" class="headerlink" title="eg:location2=/home/ubuntu"></a>eg:location2=/home/ubuntu</h1><p>scp test.txt <a class="link"   href="mailto:ubuntu@192.x.x.x" >ubuntu@192.x.x.x<i class="fas fa-external-link-alt"></i></a>:/location2</p><h1 id="decompress"><a href="#decompress" class="headerlink" title="decompress"></a>decompress</h1><h2 id="unzip"><a href="#unzip" class="headerlink" title="unzip"></a>unzip</h2><p>download via curl and unzip </p><pre class="language-none"><code class="language-none">curl -o everytask.zip http:&#x2F;&#x2F;192.168.31.244:8000&#x2F;everytask.zipmkdir everytaskcp everytask.zip everytaskcd everytaskunzip everytask.zip</code></pre>]]></content>
       
       
       
