@@ -162,8 +162,9 @@ export CC=aarch64-linux-musl-gcc
 
 make & make install
 
-  export SQLITE3_LIB_DIR=$HOME/sql/bin/
- export SQLITE3_INCLUDE_DIR=$HOME/sql/include/
+export SQLITE3_LIB_DIR=$HOME/sql/lib
+          export SQLITE3_INCLUDE_DIR=$HOME/sql/include
+          export SQLITE3_STATIC=1 
 ```
 ### build ankisyncd
 
