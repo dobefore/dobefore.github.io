@@ -191,7 +191,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-01-14 19:49:57</span>
+        <span class="pc">2023-01-15 14:30:11</span>
     </span>
     
     
@@ -211,7 +211,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>56 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>105 Words</span>
         </span>
     
     
@@ -232,14 +232,15 @@
             
 
             <div class="article-content keep-markdown-body">
-                <h3 id="scp-copy-file-between-local-and-remote"><a href="#scp-copy-file-between-local-and-remote" class="headerlink" title="scp copy file between local and remote"></a>scp copy file between local and remote</h3><p>copy file from local to a remote</p>
-<p>```</p>
-<h1 id="eg-location2-home-ubuntu"><a href="#eg-location2-home-ubuntu" class="headerlink" title="eg:location2=/home/ubuntu"></a>eg:location2=/home/ubuntu</h1><p>scp test.txt <a class="link"   href="mailto:ubuntu@192.x.x.x" >ubuntu@192.x.x.x<i class="fas fa-external-link-alt"></i></a>:/location2</p>
+                <h1 id="scp-transfer-files-between-local-and-remote"><a href="#scp-transfer-files-between-local-and-remote" class="headerlink" title="scp transfer files between local and remote"></a>scp transfer files between local and remote</h1><h2 id="copy-file-from-local-to-a-remote"><a href="#copy-file-from-local-to-a-remote" class="headerlink" title="copy file from local to a remote"></a>copy file from local to a remote</h2><pre class="language-none"><code class="language-none">scp test.txt [ubuntu@192.111.111.111](mailto:ubuntu@192.111.111.111):&#x2F;home&#x2F;ubuntu</code></pre>
+<h2 id="receive-download-files-from-remote"><a href="#receive-download-files-from-remote" class="headerlink" title="receive/download files from remote"></a>receive/download files from remote</h2><p>for example receive an executable task from remote to local dir .</p>
+<pre class="language-none"><code class="language-none">scp ubuntu@119.111.111.111:&#x2F;home&#x2F;ubuntu&#x2F;task .
+ubuntu@119.111.111.111&#39;s password:
+task                     100% 3325KB 531.1KB&#x2F;s   00:06</code></pre>
+
 <h1 id="decompress"><a href="#decompress" class="headerlink" title="decompress"></a>decompress</h1><h2 id="unzip"><a href="#unzip" class="headerlink" title="unzip"></a>unzip</h2><p>download via curl and unzip </p>
 <pre class="language-none"><code class="language-none">curl -o everytask.zip http:&#x2F;&#x2F;192.168.31.244:8000&#x2F;everytask.zip
-
 mkdir everytask
-
 cp everytask.zip everytask
 
 cd everytask
@@ -325,7 +326,7 @@ unzip everytask.zip</code></pre>
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#scp-copy-file-between-local-and-remote"><span class="nav-number">1.</span> <span class="nav-text">scp copy file between local and remote</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#eg-location2-home-ubuntu"><span class="nav-number"></span> <span class="nav-text">eg:location2&#x3D;&#x2F;home&#x2F;ubuntu</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#decompress"><span class="nav-number"></span> <span class="nav-text">decompress</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#unzip"><span class="nav-number"></span> <span class="nav-text">unzip</span></a>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#scp-transfer-files-between-local-and-remote"><span class="nav-number">1.</span> <span class="nav-text">scp transfer files between local and remote</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#copy-file-from-local-to-a-remote"><span class="nav-number">1.1.</span> <span class="nav-text">copy file from local to a remote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#receive-download-files-from-remote"><span class="nav-number">1.2.</span> <span class="nav-text">receive&#x2F;download files from remote</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#decompress"><span class="nav-number">2.</span> <span class="nav-text">decompress</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#unzip"><span class="nav-number">2.1.</span> <span class="nav-text">unzip</span></a></li></ol></li></ol>
     </div>
 </div>
 

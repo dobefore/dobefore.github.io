@@ -191,7 +191,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2022-01-04 14:52:01</span>
+        <span class="pc">2023-01-15 13:41:55</span>
     </span>
     
     
@@ -215,7 +215,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>755 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>757 Words</span>
         </span>
     
     
@@ -344,8 +344,9 @@ export OPENSSL_STATIC&#x3D;true
 
 make &amp; make install
 
-  export SQLITE3_LIB_DIR&#x3D;$HOME&#x2F;sql&#x2F;bin&#x2F;
- export SQLITE3_INCLUDE_DIR&#x3D;$HOME&#x2F;sql&#x2F;include&#x2F;</code></pre>
+export SQLITE3_LIB_DIR&#x3D;$HOME&#x2F;sql&#x2F;lib
+          export SQLITE3_INCLUDE_DIR&#x3D;$HOME&#x2F;sql&#x2F;include
+          export SQLITE3_STATIC&#x3D;1 </code></pre>
 <h3 id="build-ankisyncd"><a href="#build-ankisyncd" class="headerlink" title="build ankisyncd"></a>build ankisyncd</h3><p>at last ,build</p>
 <pre class="language-none"><code class="language-none"># aarch64
 cargo build --target&#x3D;aarch64-unknown-linux-musl --release
