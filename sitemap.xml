@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dobefore.github.io/the-magician's-nephew/</loc>
+    
+    <lastmod>2023-01-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dobefore.github.io/the-horse-and-his-boy/</loc>
+    
+    <lastmod>2023-01-23</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dobefore.github.io/linux-commands/</loc>
     
     <lastmod>2023-01-15</lastmod>
@@ -151,7 +165,7 @@
 
   <url>
     <loc>https://dobefore.github.io/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -159,147 +173,154 @@
   
   <url>
     <loc>https://dobefore.github.io/tags/vim/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/docker/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/rust/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/cdylib/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/cross-compile/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/hexo/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/blog/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/git/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/linux/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/economy/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/raspberry-pi/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/wifi/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/gui/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/sciter/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/raspberry-pico/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/embeded/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/Anki/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/%E6%90%AD%E5%BB%BAAnki%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/windows/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/termux/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/tags/resource/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://dobefore.github.io/tags/digest/</loc>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -308,21 +329,21 @@
   
   <url>
     <loc>https://dobefore.github.io/categories/program-language/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/categories/tools/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://dobefore.github.io/categories/book/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

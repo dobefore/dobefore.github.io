@@ -9,7 +9,7 @@
     
     <title>
         
-            在rust程序中调用c函数 |
+            the-magician&#39;s-nephew |
         
         冬柠的小站
     </title>
@@ -163,7 +163,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">在rust程序中调用c函数</span>
+                <span class="title-hover-animation">the-magician&#39;s-nephew</span>
             </div>
 
             
@@ -185,13 +185,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-01-04 11:45:41</span>
-        <span class="mobile">2023-01-04 11:45</span>
+        <span class="pc">2023-01-23 20:24:42</span>
+        <span class="mobile">2023-01-23 20:24</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-01-04 12:09:57</span>
+        <span class="pc">2023-01-23 20:30:21</span>
     </span>
     
     
@@ -201,7 +201,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/rust/">rust</a>&nbsp;
+                        <a href="/tags/digest/">digest</a>&nbsp;
                     </li>
                 
             </ul>
@@ -211,12 +211,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>546 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.9k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>6 Mins</span>
         </span>
     
     
@@ -232,61 +232,20 @@
             
 
             <div class="article-content keep-markdown-body">
-                <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>我想写一段rust程序，它能够接收到用户键盘输入就会立刻退出，即按任意键退出，但是不用用户敲击<code>enter</code>键。纯用rust写似乎不好实现，而利用现成的c语言却能很好地解决问题。</p>
-<p>我们用c语言实现上面的功能，并在rust程序中调用c函数，我们把c静态编译成静态库，静态链接。</p>
-<h2 id="代码实现细节"><a href="#代码实现细节" class="headerlink" title="代码实现细节"></a>代码实现细节</h2><p>我们使用构建库<code>cc</code>来编译c程序为静态库，利用rust构建脚本来搜索查找静态库。我们在main模块里面引入c库函数。</p>
-<p>新建一个项目 <code>cargo new callc</code>.下面是各个文件的内容构成。</p>
-<blockquote>
-<p>src/press.c</p>
-</blockquote>
-<p>c代码解释：<code>getch</code>函数从标准输入流读取一个字符，而不需要用户输入enter键，因为直接从键盘Buffer里面读取。一旦字符被读取，程序会退出。<br>注意<code>conio.h</code> 可能不是标准库函数，在除Windows以外的操作系统中可能会出现失败的情形。</p>
-<pre class="language-none"><code class="language-none">#include &lt;stdio.h&gt;
-#include &lt;conio.h&gt;
-
-int press() &#123;
-    printf(&quot;Press any key to exit...\n&quot;);
-    getch();
-    return 0;
-&#125;</code></pre>
-
-<blockquote>
-<p>Cargo.toml</p>
-</blockquote>
-<pre class="language-none"><code class="language-none">build&#x3D;&quot;build.rs&quot;
-[build-dependencies]
-cc &#x3D; &quot;1.0.78&quot;</code></pre>
-
-<blockquote>
-<p>src/main.rs</p>
-</blockquote>
-<p>声明我们要使用函数<code>press</code></p>
-<pre class="language-none"><code class="language-none">&#x2F;&#x2F; Note the lack of the &#96;#[link]&#96; attribute. We’re delegating the responsibility
-&#x2F;&#x2F; of selecting what to link over to the build script rather than hard-coding
-&#x2F;&#x2F; it in the source file.
-extern &#123; fn press(); &#125;
-
-fn main() &#123;
-    unsafe &#123; press(); &#125;
-&#125;</code></pre>
-
-<blockquote>
-<p>build.rs</p>
-</blockquote>
-<p>编译<code>press.c</code>为静态库，紧接着在位置<code>OUT_DIR</code>环境变量所指示的目录下面找到静态库便于后面的链接。</p>
-<pre class="language-none"><code class="language-none">use std::env;
-fn main() &#123;
-    &#x2F;&#x2F; out dir is in target&#x2F;release&#x2F;build
-     let out_dir &#x3D; env::var(&quot;OUT_DIR&quot;).unwrap();
-    &#x2F;&#x2F; Tell Cargo that if the given file changes, to rerun this build script.
-    println!(&quot;cargo:rerun-if-changed&#x3D;src&#x2F;press.c&quot;);
-    &#x2F;&#x2F; Use the &#96;cc&#96; crate to build a C file and statically link it.
-    cc::Build::new()
-        .file(&quot;src&#x2F;press.c&quot;)
-        .compile(&quot;press&quot;);
-            println!(&quot;cargo:rustc-link-search&#x3D;native&#x3D;&#123;&#125;&quot;, out_dir);
-    println!(&quot;cargo:rustc-link-lib&#x3D;static&#x3D;press&quot;);
-&#125;</code></pre>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] <a class="link"   target="_blank" rel="noopener" href="https://doc.rust-lang.org/cargo/reference/build-script-examples.html" >https://doc.rust-lang.org/cargo/reference/build-script-examples.html<i class="fas fa-external-link-alt"></i></a></p>
+                <p>Author: C.S.LEWIS<br>a series of the chronicles of Narnia.<br>Book 1</p>
+<p>故事梗概: 一个男孩和女孩因为男孩的叔叔的缘故先后来到了来到了一个正在走向死亡的世界，意外地唤醒了邪恶的女王和他们一起来到了现实世界并在这引发了骚动。男孩和女孩合作把女王带离了这个世界，去到了一个正在经历创世的世界，他们在那看到了震撼人心的创世奇景，女王因为畏惧创世神力逃离众人，这给新生的世界带来了危机。为了补救，男孩和女孩根据创世神的指示到遥远的西方取得正确的苹果，在那里男孩经历了女王的诱惑但最后抵挡住了，成功滴把苹果带回。回来后，苹果被种在地下，大陆完成了第一次王与女王的加冕仪式，苹果树悄无声息地成长孕育出了果实，男孩被允许摘下一枚果子，随后3个人回到了本来的世界，果子被男孩母亲吃下，果核被种在院子，长成了大树，后面被做成了衣橱，成为新故事的起点。</p>
+<p>此地有一排房子，两处人家比邻而居。一天，一个叫做Digory的男孩探出墙壁遇见了邻居家的小女孩Polly，他们交谈了起来，男孩在向女孩抱怨他的家里有个叫做Andrew的叔叔，有些癔症。他们经常一起玩，Polly给他展示了穿梭房屋的密道，他们开始了探索，结果他们阴差阳错地来到了Digory的叔叔的书房。Digory的叔叔也在里面，他的叔叔诱惑Polly,让她拿起戒指，而我们的女主角Polly痴迷于戒指的美观，就接触了戒指，刚一接触她就消失了。</p>
+<p>实际上，我们的魔法师Andrew对戒指有着粗浅的认知，但是他因为胆小不敢去尝试。结果就丧心病狂地对我们的小女孩伸出了魔爪，现在还要以朋友的名义来道德绑架我们可爱的Digory 。尽管叔叔非常可恶，但事关未来老婆的生死怎能袖手旁观呢？他义愤填膺，只能忍辱负重地请教叔叔关于戒指的使用方法。他叔叔见奸计得逞，给他说了戒指如何使用。这里有两种戒指，戴上黄色戒指可以使人离开这个世界，就像Polly一样；绿色的戒指可以让人回到本来的世界。</p>
+<p>等到Digory离开了本来的世界，他出现在一片茂密的森林里，他从池塘出来，并且发现此地有很多个池塘。不远处他发现了先走的Polly,他们两人都有些懵逼，经过一番回忆，他们记起来了事情的来龙去脉和目的。</p>
+<p>事多的Digory提出要到其它池塘看看，然后他们选了一个池塘进入其中，他们来到了一个几乎将近终点的世界。那边的太阳更大颜色更红，感觉太阳要快走到终点。他们来到了一片宫殿废墟，四周有高大的城墙和穹顶门户。经过一番运动，他们来到了一间屋子，屋子里面陈列着人形石蜡雕像，排列在两旁，在最上面有一个女性，两人看过了石碑上面的记载的内容，手贱的Digory打破了诅咒，包括用小锤敲响了铃铛，魔法被解除，宫殿开始倒塌。</p>
+<p>根据女王Jadis的自白，在战争里，被她的sister 逼到了绝路，她就给世界施加了一个叫做deplorable  word  的咒语。咒语的影响是除了施术者陷入沉睡以外，其他一切生物都死去。</p>
+<p>在无意中Digory 提到了他们生活的世界。因为Jadis的世界已经接近死亡了，引发了她的觊觎。谈话中Polly言语上对Jadis不敬，Jadis愤怒地抓住了Polly的头发，就这样三人被一起传送到了本来的世界。</p>
+<p>到了Digory 的家后，他的叔叔就被征用了，而两个小孩被忽视了，他的叔叔神态活像一只狗为女王Jadis 鞍前马后。Jadis催促uncle Andrew给她找一个符合她身份的坐骑。后来jadis跟着Andrew一起出去了，等到Jadis 回来时候发生了骚动。因为抢东西不负帐，警察商人和马夫Cabby在后面追她 ，在争斗的过程中，Polly 和Digory 互相合作，成功地把Jadis 带离了原来的世界。只是这次多了几个人，有叔叔Andrew 和马夫Cabby和一匹马 。</p>
+<p>他们一行人来到了一片新大陆，随着一阵阵的狮子的吟唱歌声，这个世界从一片荒芜到充满着充满生机的树木，各种野兽诞生，而且其中的一些野兽甚至成为了能够说话的野兽，而且和Digory一行人一起来的那匹马也变成了会说话的野兽，他们能够思考。<br>在大陆改造的过程中，反派Jadis 趁着狮子不得空的时机逃掉了。在改造完成后，造世主狮子Aslan和会说话的野兽交流了感情，然后说明了纳尼亚大陆会面临的危机。而且这个危机就是亚当夏娃的后代也就是Digory 一行人带来的，女王Jadis。接着就是国王和王妃的加冠仪式，国王就是Cabby王妃就是他在原来世界的妻子，他的妻子被狮子隔空转移过来了。</p>
+<p>关于拯救大陆的办法，狮子也讲了。具体就是在纳尼亚大陆中心种一棵树，使得女王jadis不敢靠近树的附近。在那里找到树的种子呢 ？地点就在纳尼亚大陆之外的西边，跨越高山和悬崖，有一个蓝色湖泊绿色的山谷，而果树就在前面的山丘。骑上会飞的马出发了。在旅途中更是发生了神奇的景象，就是吃过的toffee，第二天就长出来满是toffee的树。</p>
+<p>到了地方后，他们看到了一处果园，树叶有多种颜色，只有Digory 一个人进了果园，他采摘了果园中心银色的果实。因为Jadis跟踪窃听了他们的谈话知道了他们的目的，Jadis和他们在果园相遇。jadis不断滴诱惑Digory 私自吃下摘的果实，Digory 的内心相当的挣扎，因为jadis 给他说明了果实和他妈妈的病情之间的关系。最终，Digory 还是压制住了心中的这份躁动，控制了内心的私欲。</p>
+<p>一行人回到了纳尼亚大陆，回到了Aslan的身边。自然得到了它的一顿夸奖。然后让Digory 亲自种下了果实。种下了果实之后就是Aslan给国王和王后的加冕仪式。</p>
+<p>而我们的uncle Andrew 早已经被各种会说就对的野兽们玩坏了，aslan临行前给两个孩子一个命令和警告。接着他们就回到了伦敦，根据aslan的嘱托，他们把戒指埋在地下，Digory 把果实给了他的妈妈，她吃了不久后痊愈了，<br>吃剩下的果实种子被种在这边的世界，之后Digory 砍下了树木做了一个衣橱柜，这就是后面的故事的开端。</p>
 
             </div>
 
@@ -295,16 +254,16 @@ fn main() &#123;
                     <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li>
-            <span class="type">Post title</span>：<span class="content">在rust程序中调用c函数</span>
+            <span class="type">Post title</span>：<span class="content">the-magician&#39;s-nephew</span>
         </li>
         <li>
             <span class="type">Post author</span>：<span class="content">冬柠</span>
         </li>
         <li>
-            <span class="type">Create time</span>：<span class="content">2023-01-04 11:45:41</span>
+            <span class="type">Create time</span>：<span class="content">2023-01-23 20:24:42</span>
         </li>
         <li class="post-link">
-            <span class="type">Post link</span>：<span class="content">call-c-from-rust/</span>
+            <span class="type">Post link</span>：<span class="content">the-magician&#39;s-nephew/</span>
         </li>
         <li>
             <span class="type">Copyright Notice</span>：<span class="content">All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.</span>
@@ -319,7 +278,7 @@ fn main() &#123;
                 <ul class="post-tags-box">
                     
                         <li class="tag-item">
-                            <a href="/tags/rust/">#rust</a>&nbsp;
+                            <a href="/tags/digest/">#digest</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -331,13 +290,13 @@ fn main() &#123;
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/the-magician&#39;s-nephew/"
+                               href="/the-horse-and-his-boy/"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item">the-magician&#39;s-nephew</span>
+                                <span class="post-nav-title-item">the-horse-and-his-boy</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                             </a>
@@ -347,10 +306,10 @@ fn main() &#123;
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/set-up-anki-custom-server-new/"
+                               href="/call-c-from-rust/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">set_up_anki_custom_server_new</span>
+                                <span class="post-nav-title-item">在rust程序中调用c函数</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -369,7 +328,7 @@ fn main() &#123;
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="nav-number">2.</span> <span class="nav-text">代码实现细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol>
+        
     </div>
 </div>
 

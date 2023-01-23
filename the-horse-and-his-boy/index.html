@@ -9,7 +9,7 @@
     
     <title>
         
-            在rust程序中调用c函数 |
+            the-horse-and-his-boy |
         
         冬柠的小站
     </title>
@@ -163,7 +163,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">在rust程序中调用c函数</span>
+                <span class="title-hover-animation">the-horse-and-his-boy</span>
             </div>
 
             
@@ -185,13 +185,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-01-04 11:45:41</span>
-        <span class="mobile">2023-01-04 11:45</span>
+        <span class="pc">2023-01-23 20:25:11</span>
+        <span class="mobile">2023-01-23 20:25</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-01-04 12:09:57</span>
+        <span class="pc">2023-01-23 20:28:38</span>
     </span>
     
     
@@ -201,7 +201,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/rust/">rust</a>&nbsp;
+                        <a href="/tags/digest/">digest</a>&nbsp;
                     </li>
                 
             </ul>
@@ -211,12 +211,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>546 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.4k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>8 Mins</span>
         </span>
     
     
@@ -232,61 +232,10 @@
             
 
             <div class="article-content keep-markdown-body">
-                <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>我想写一段rust程序，它能够接收到用户键盘输入就会立刻退出，即按任意键退出，但是不用用户敲击<code>enter</code>键。纯用rust写似乎不好实现，而利用现成的c语言却能很好地解决问题。</p>
-<p>我们用c语言实现上面的功能，并在rust程序中调用c函数，我们把c静态编译成静态库，静态链接。</p>
-<h2 id="代码实现细节"><a href="#代码实现细节" class="headerlink" title="代码实现细节"></a>代码实现细节</h2><p>我们使用构建库<code>cc</code>来编译c程序为静态库，利用rust构建脚本来搜索查找静态库。我们在main模块里面引入c库函数。</p>
-<p>新建一个项目 <code>cargo new callc</code>.下面是各个文件的内容构成。</p>
-<blockquote>
-<p>src/press.c</p>
-</blockquote>
-<p>c代码解释：<code>getch</code>函数从标准输入流读取一个字符，而不需要用户输入enter键，因为直接从键盘Buffer里面读取。一旦字符被读取，程序会退出。<br>注意<code>conio.h</code> 可能不是标准库函数，在除Windows以外的操作系统中可能会出现失败的情形。</p>
-<pre class="language-none"><code class="language-none">#include &lt;stdio.h&gt;
-#include &lt;conio.h&gt;
-
-int press() &#123;
-    printf(&quot;Press any key to exit...\n&quot;);
-    getch();
-    return 0;
-&#125;</code></pre>
-
-<blockquote>
-<p>Cargo.toml</p>
-</blockquote>
-<pre class="language-none"><code class="language-none">build&#x3D;&quot;build.rs&quot;
-[build-dependencies]
-cc &#x3D; &quot;1.0.78&quot;</code></pre>
-
-<blockquote>
-<p>src/main.rs</p>
-</blockquote>
-<p>声明我们要使用函数<code>press</code></p>
-<pre class="language-none"><code class="language-none">&#x2F;&#x2F; Note the lack of the &#96;#[link]&#96; attribute. We’re delegating the responsibility
-&#x2F;&#x2F; of selecting what to link over to the build script rather than hard-coding
-&#x2F;&#x2F; it in the source file.
-extern &#123; fn press(); &#125;
-
-fn main() &#123;
-    unsafe &#123; press(); &#125;
-&#125;</code></pre>
-
-<blockquote>
-<p>build.rs</p>
-</blockquote>
-<p>编译<code>press.c</code>为静态库，紧接着在位置<code>OUT_DIR</code>环境变量所指示的目录下面找到静态库便于后面的链接。</p>
-<pre class="language-none"><code class="language-none">use std::env;
-fn main() &#123;
-    &#x2F;&#x2F; out dir is in target&#x2F;release&#x2F;build
-     let out_dir &#x3D; env::var(&quot;OUT_DIR&quot;).unwrap();
-    &#x2F;&#x2F; Tell Cargo that if the given file changes, to rerun this build script.
-    println!(&quot;cargo:rerun-if-changed&#x3D;src&#x2F;press.c&quot;);
-    &#x2F;&#x2F; Use the &#96;cc&#96; crate to build a C file and statically link it.
-    cc::Build::new()
-        .file(&quot;src&#x2F;press.c&quot;)
-        .compile(&quot;press&quot;);
-            println!(&quot;cargo:rustc-link-search&#x3D;native&#x3D;&#123;&#125;&quot;, out_dir);
-    println!(&quot;cargo:rustc-link-lib&#x3D;static&#x3D;press&quot;);
-&#125;</code></pre>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] <a class="link"   target="_blank" rel="noopener" href="https://doc.rust-lang.org/cargo/reference/build-script-examples.html" >https://doc.rust-lang.org/cargo/reference/build-script-examples.html<i class="fas fa-external-link-alt"></i></a></p>
+                <p>Author: C.S.LEWIS<br>a series of the chronicles of Narnia.<br>BOok 3</p>
+<p>在一故事的一开始，是一个偏僻小地方，那里有一个渔民和他收养的小孩子。一天不同寻常的事情发生了，一个来自大都市Tarkaan 的一个骑马的人来到了渔民的家里，渔民拿出了好吃好喝的出来招待，后面他们背着渔民收养的小伙子Shasta 进行着秘密的谈话。<br>他们的密谋是渔民要把小伙子Shasta 卖给来的客人，因为客人出的价钱不在渔民的预期之内，也就是价钱太低了，于是就进行了一番讨价还价。不巧地是，他们的谈话被我们的小伙子Shasta窃听了。<br>听到了谈话的Shasta到了马厩，自言自语地对着那个陌生人带来的马说话，冷不防地马开始说话了，这让Shasta 大吃一惊，经过一番对话，他们两人同意一起逃走。从谈话中Shasta 了解到了会说话的马来自于narnia,它是被拐卖的，也了解了它的过往经历。<br>在跑路的过程中，他们定下的目标就是到北方也就是narnia 的地盘。Bree这是Shasta 给会说话的马起的名字，说有一个马术精湛的人在不远处跟踪他们，在狮子的威胁下，这两波人被迫聚集在了一起。这下子，跟踪Shasta 的人的身份也就随着谈话揭晓了，原来这竟然是一个逃婚的领主的女儿，有趣的是，这个Aravis也骑着会说话的马，Hwin,接下来就是Aravis逃婚和遇到Hwin 的具体过程。<br>接下来就是Aravis 和Hwin 一人一马加入了他们。经过一番商讨，他们乔装打扮进入了Tashbaan，他们约定在一个地方汇合那个地方叫做the tombs of the ancient ，以他们会走散的前提下。正当他们以为能够轻松穿过城市时候，变故发生了，Shasta 被捉住了，似乎是和narnia 来的王子Corin 长得像，被误以为是他。<br>为什么narnia 的王子会来到tisroc 这个国家呢？王子自然是由国王和女王们带来的。为什么会有几个国王和女王呢？这是发生在故事第二部《the lion，the witch,the wardrobe》里面。还有随同来的亚人(半人半羊)？他们遇到了什么危机呢？原来女王Susan 被Tisroc这个国家的王子看上了，要求她嫁给王子。narnia的这些国王和也意识到了危机的临近，他们也在考虑思考出路和解决的办法？<br>Shasta 在这里住的非常安适，乐不思蜀，某一天失踪的Corin 王子从窗外回来了。Shasta 和Corin 王子发生了一段对话，然后Shasta 根据Corin 的指示爬出了窗外，到了屋顶之上。  几乎相当于飞檐走壁似的穿过了城区。到了城外他们约定好的地点古君王的陵墓。<br>只有Shasta 到了，不见其他人和马。一个人在墓地一遇到风吹草动就会神经质地以为有非自然生物。在期间，他遇到了一只猫，那个猫给人的感觉非同寻常。过了几天吧，他看到一个马夫带领着两匹马，而这两匹马正是Bree 和Hwin 。他不敢过去，怕是一个诱拐他的阴谋。</p>
+<p>那么他的伙伴Aravis 为什么没有来呢？事情要回到Shasta 被narnia 的人捉去的时候，Aravis 的闺蜜一眼就在人群中发现了她，这个闺蜜是个有话就说的天真人，非常的单纯不会思考过多的隐情，认出来自然要大声叫出名字，随后就是久别重逢的再续闺中 情。马儿们自然也跟着，她们两个合计想出了一个方法使得Aravis 穿过Tashbaan，让马夫先带着两匹马到君王墓等候，她随后就到。这两个闺蜜到王都宴会偶然在一处密室碰到了tisroc 的王子和国王大臣密谋侵吞archenland再然后就是narnia 。<br>等到Aravis和Shasta 汇合，她把她听到的阴谋对大伙说了，大家都同意赶在王子之前给narnia 的通风报信。他们一路上风餐露宿，长途跋涉，终于到了Archenland，这里山清水秀，景色宜人也宜马。在他们快要松懈下来的时候，前面来了一只狮子，他们只有玩命地跑，在后面的Aravis 收到狮子的攻击的时候，Shasta 勇敢地站出来喝退了狮子，在后面众人对Shasta 的印象发生了改观。他们到了一处隐士的屋子，隐士告诉Shasta 他应该立刻马不停蹄地到king  lune 的驻地传达tisroc的王子带领军队要来袭击Archenland 的消息，而在另一边隐士的家里，隐士为Aravis 治疗了伤势，用美味的水草犒劳了两匹马，而我们的马儿Bree 还在因为面临狮子的危机时刻一心只想逃而没有顾及到队友的自私感到无地自容在耍脾气，一匹马独自在那生自己的闷气，特别是在模范英雄Shasta 的英勇身姿的映衬之下。幸好有队友和饮食的开导。<br>话分两头，我们的勇士Shasta 一路快跑在一处林地遇到了anvard 的王Luue，并把袭击的消息告诉了王，王Lune 自然开始了行动，比如说赶快回城关城门。<br>我们的信使因为脚下的马儿不配合而落后于大部队，后面甚至只剩下他们一人一马了，随着异象出现了narnia 的神的化身狮子，经过一开始的恐惧，Shasta 对狮子大吐心中的不快，讲述了出生以来遭遇到的厄运和近些天进行的冒险。而狮子也向Shasta说了一些关于Shasta 的隐情和身世和他们一路来的偶遇都是它促成的。<br>等到他醒过来时候已经到了narnia。在这里他遇到了当地的居民也就是会说话的野兽，他给它们说了袭击的事情，它们就把消息传递出去了。然后居民略尽地主之谊，dwarf 给他做了一顿大餐，他也吃的心满意足，吃饱喝足后到外面看美景去了，Shasta 一会就沉沉睡去了。</p>
+<p>等到消息传到了narnia 的王都 caral  paravel，军队集结。在隐士的屋子里面湖泊里面正有着正发生在战场的影像，只有画面没有声音。narnia 和tisroc 的军队两军会面于一处地方，narnia 一方有哪些阵容？有国王和女王列阵于军队前面，我们的王子Corin和Shasta 见了面隐藏在了军队中，军队中有各种会说话的野兽，比如说马，centaur s，dwarf 等等.战局的最后自然是narnia 的一方取得了胜利，tisroc的王子rabadash 被俘虏。到这里，隐士的镜像就结束了，因为接下来主要是谈话，没有什么好看的。<br>而正发生在现场的大型认亲场面，则是和Shasta 和Corin 相关，原来他们竟然是双胞胎。<br>事情的前因后果，等到我们的Cor王子到了隐士的家里来了，想要接纳Aravis。然后Cor 也就是Shasta说了Lune 王告诉他的关于他的身世。在Cor 和Corin 出生后，他们被 带到了先知centaur 的家里，先知一看到Cor就说他能拯救Archenland大陆于危难之中。而Lune 的大臣显然不满意这个预言，而且因为大臣是一个叛国贼，偷偷滴把Archenland 的消息传出去。大臣就把Cor 拐骗出国家，等到Lune 发现的时候，派出大船前去追击，据说发生了海战。最后大臣战败，只是因为大臣知道自己的败局已定，Cor 王子早已经被转移了。在大海孤独流浪的Cor 和一位没有姓名的骑士，动了恻隐之心的骑士选择牺牲自己的生命也就是饿死自己给予了孩子以新生，并且在狮子的暗中帮助下到了河岸被一个渔民收养了。<br>讲完了他的身世，Cor把Aravis 接到了他父亲的宫殿。然后两匹马也得到了适宜的安排。他们到了Lune 的宫殿，在那里narnia的国王和王后都在那，因为刚刚打完仗，商量rabadash的处置。这群善良的王决定从轻发落，只是要附加一些条件，而rabadash 根本就不想听，在那不停咒骂。<br>过了一会儿，narnia 的神的化身狮子无声无息地出现在了大厅里面，狮子见rabadash 油盐不进，一会儿功夫在众人的见证下rabadash 变成了一只驴子。<br>变成了驴子的rabadash 被送回了tisroc,根据狮子的预言，在Tisroc的神庙里面并且在民众的见证下又变回了人的身体。但是他自此之后不能够离开神庙的区域，否则会变成驴子而且不能变回来。自此对于周边的国家来说是件好事，因为等到rabadash 继承王位时，他一生都没有对外发动过战争，人们称他为和平缔造者，而在rabadash 死后，他成了人们的笑话。<br>之后narnia 的人们举行了盛大的宴会。</p>
 
             </div>
 
@@ -295,16 +244,16 @@ fn main() &#123;
                     <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li>
-            <span class="type">Post title</span>：<span class="content">在rust程序中调用c函数</span>
+            <span class="type">Post title</span>：<span class="content">the-horse-and-his-boy</span>
         </li>
         <li>
             <span class="type">Post author</span>：<span class="content">冬柠</span>
         </li>
         <li>
-            <span class="type">Create time</span>：<span class="content">2023-01-04 11:45:41</span>
+            <span class="type">Create time</span>：<span class="content">2023-01-23 20:25:11</span>
         </li>
         <li class="post-link">
-            <span class="type">Post link</span>：<span class="content">call-c-from-rust/</span>
+            <span class="type">Post link</span>：<span class="content">the-horse-and-his-boy/</span>
         </li>
         <li>
             <span class="type">Copyright Notice</span>：<span class="content">All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.</span>
@@ -319,7 +268,7 @@ fn main() &#123;
                 <ul class="post-tags-box">
                     
                         <li class="tag-item">
-                            <a href="/tags/rust/">#rust</a>&nbsp;
+                            <a href="/tags/digest/">#digest</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -328,29 +277,14 @@ fn main() &#123;
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="/the-magician&#39;s-nephew/"
-                            >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item">the-magician&#39;s-nephew</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                            </a>
-                        </div>
-                    
                     
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/set-up-anki-custom-server-new/"
+                               href="/the-magician&#39;s-nephew/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">set_up_anki_custom_server_new</span>
+                                <span class="post-nav-title-item">the-magician&#39;s-nephew</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -369,7 +303,7 @@ fn main() &#123;
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="nav-number">2.</span> <span class="nav-text">代码实现细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol>
+        
     </div>
 </div>
 
