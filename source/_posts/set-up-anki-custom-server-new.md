@@ -17,6 +17,19 @@ tags:
 [![v4GRLq.png](https://s1.ax1x.com/2022/08/31/v4GRLq.png)](https://imgse.com/i/v4GRLq)
 
 ## 第二步 双击启动ankiserver，查看同步地址（用于Ankidroid的配置）
+
+如果您的Anki版本为2.1.57或者以后版本(>=2.1.57)，需要进行下面两个小步骤。
+
+1. 在黑色窗口找到并复制红色方框内容，鼠标左键按下不放，拖动直到覆盖整个内容，松开鼠标，单机右键复制。
+
+![Snipaste_2023-02-09_09-20-00](https://cdn.staticaly.com/gh/dobefore/blogpics@main/Snipaste_2023-02-09_09-20-00.118paadfycfk.webp)
+
+，2. 并打开Anki，进入`工具-->设置-->网络`，找到下方的`self-hosted-sync server(自建同步服务器)`.,将我们复制的地址粘贴到这里，如图所示。重启Anki
+
+![Snipaste_2023-02-09_09-20-39](https://cdn.staticaly.com/gh/dobefore/blogpics@main/Snipaste_2023-02-09_09-20-39.lak466bjkxs.webp)
+
+下面这张图片是第四步要用到的，留意，
+
 [![xvcWQO.png](https://s1.ax1x.com/2022/11/07/xvcWQO.png)](https://imgse.com/i/xvcWQO)
 
 ## 第三步 打开Anki，输入账号(来自第一步)，点击同步
